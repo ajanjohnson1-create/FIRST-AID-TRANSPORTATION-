@@ -72,7 +72,7 @@
           <h3 class="fsec">2. Payment / Insurance</h3>
           <div class="form-group">
             <label>Payment Method *</label>
-            <select name="Payment Method" required>
+            <select name="Payment Method" id="paymentMethod" required onchange="toggleCardFields()">
               <option value="">— Select Payment Method —</option>
               <option value="Medi-Cal">Medi-Cal</option>
               <option value="CCHP (Contra Costa Health Plan)">CCHP (Contra Costa Health Plan)</option>
@@ -82,6 +82,39 @@
             </select>
           </div>
           <div class="form-group"><label>Insurance / Member ID (if applicable)</label><input type="text" name="Member ID" placeholder="Member ID or Policy Number"/></div>
+
+          <!-- PRIVATE PAY CARD FIELDS (shown only when Private Pay selected) -->
+          <div id="cardFields" style="display:none;background:var(--ice);border:1.5px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.25rem;">
+            <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;">
+              <span style="font-size:1.2rem;">🔒</span>
+              <span style="font-size:.8rem;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;">Card Information — Encrypted End-to-End</span>
+            </div>
+            <div class="form-group">
+              <label>Cardholder Name *</label>
+              <input type="text" id="cardName" placeholder="Name as it appears on card"/>
+            </div>
+            <div class="form-group">
+              <label>Card Number *</label>
+              <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)"/>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Expiry Date *</label>
+                <input type="text" id="cardExpiry" placeholder="MM / YY" maxlength="7" oninput="formatExpiry(this)"/>
+              </div>
+              <div class="form-group">
+                <label>CVV *</label>
+                <input type="text" id="cardCVV" placeholder="123" maxlength="4"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Billing ZIP Code *</label>
+              <input type="text" id="cardZip" placeholder="94606" maxlength="5"/>
+            </div>
+            <p style="font-size:.78rem;color:var(--gray);margin-top:.5rem;">🔒 Your card data is encrypted in your browser before sending. We will process payment once your trip is confirmed.</p>
+            <!-- Hidden field that holds the encrypted card data -->
+            <input type="hidden" name="Encrypted Card Data" id="encryptedCardData"/>
+          </div>
 
           <h3 class="fsec">3. Transport Type</h3>
           <div class="transport-options">
@@ -167,9 +200,70 @@
 <script src="shared.js"></script>
 <script>
   document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
+
+  // ── PUBLIC KEY (generated from generate-keys.html) ──
+  // REPLACE THIS with your actual public key after running generate-keys.html
+  const PUBLIC_KEY_B64 = 'REPLACE_WITH_YOUR_PUBLIC_KEY';
+
+  function toggleCardFields(){
+    const method = document.getElementById('paymentMethod').value;
+    const cardFields = document.getElementById('cardFields');
+    const isPrivate = method === 'Private Pay';
+    cardFields.style.display = isPrivate ? 'block' : 'none';
+    // Set required on card inputs
+    ['cardName','cardNumber','cardExpiry','cardCVV','cardZip'].forEach(id => {
+      document.getElementById(id).required = isPrivate;
+    });
+  }
+
+  function formatCard(input){
+    let v = input.value.replace(/\D/g,'').substring(0,16);
+    input.value = v.replace(/(.{4})/g,'$1 ').trim();
+  }
+
+  function formatExpiry(input){
+    let v = input.value.replace(/\D/g,'').substring(0,4);
+    if(v.length >= 2) v = v.substring(0,2) + ' / ' + v.substring(2);
+    input.value = v;
+  }
+
+  async function encryptCardData(){
+    const data = {
+      'Cardholder Name': document.getElementById('cardName').value,
+      'Card Number': document.getElementById('cardNumber').value,
+      'Expiry': document.getElementById('cardExpiry').value,
+      'CVV': document.getElementById('cardCVV').value,
+      'Billing ZIP': document.getElementById('cardZip').value
+    };
+    try {
+      const pubKeyBytes = Uint8Array.from(atob(PUBLIC_KEY_B64), c => c.charCodeAt(0));
+      const publicKey = await window.crypto.subtle.importKey(
+        'spki', pubKeyBytes, { name:'RSA-OAEP', hash:'SHA-256' }, false, ['encrypt']
+      );
+      const encoded = new TextEncoder().encode(JSON.stringify(data));
+      const encrypted = await window.crypto.subtle.encrypt({ name:'RSA-OAEP' }, publicKey, encoded);
+      return btoa(String.fromCharCode(...new Uint8Array(encrypted)));
+    } catch(e) {
+      console.error('Encryption error:', e);
+      return null;
+    }
+  }
+
   async function handleSubmit(e){
     e.preventDefault();
     const form = document.getElementById('scheduleForm');
+
+    // If Private Pay, encrypt card data first
+    if(document.getElementById('paymentMethod').value === 'Private Pay'){
+      if(PUBLIC_KEY_B64 === 'REPLACE_WITH_YOUR_PUBLIC_KEY'){
+        alert('Payment encryption is not yet configured. Please call us at 510-479-7328 to provide payment.');
+        return;
+      }
+      const encrypted = await encryptCardData();
+      if(!encrypted){ alert('Encryption failed. Please call us at 510-479-7328.'); return; }
+      document.getElementById('encryptedCardData').value = encrypted;
+    }
+
     const data = new FormData(form);
     try {
       const res = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
