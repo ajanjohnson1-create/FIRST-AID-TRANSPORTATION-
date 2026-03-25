@@ -60,51 +60,51 @@
           <input type="hidden" name="_replyto" value="firstaidtransportation@gmail.com"/>
           <h3 class="fsec">1. Patient Information</h3>
           <div class="form-row">
-            <div class="form-group"><label>First Name *</label><input type="text" placeholder="Jane" required/></div>
-            <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Doe" required/></div>
+            <div class="form-group"><label>First Name *</label><input type="text" name="First Name" placeholder="Jane" required/></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" name="Last Name" placeholder="Doe" required/></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Date of Birth</label><input type="date"/></div>
-            <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="(510) 000-0000" required/></div>
+            <div class="form-group"><label>Date of Birth</label><input type="date" name="Date of Birth"/></div>
+            <div class="form-group"><label>Phone Number *</label><input type="tel" name="Phone Number" placeholder="(510) 000-0000" required/></div>
           </div>
-          <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div>
+          <div class="form-group"><label>Email Address</label><input type="email" name="Email" placeholder="you@example.com"/></div>
 
           <h3 class="fsec">2. Payment / Insurance</h3>
           <div class="form-group">
             <label>Payment Method *</label>
-            <select required>
+            <select name="Payment Method" required>
               <option value="">— Select Payment Method —</option>
-              <option value="medi-cal">Medi-Cal</option>
-              <option value="cchp">CCHP (Contra Costa Health Plan)</option>
-              <option value="hpsm">HPSM (Health Plan of San Mateo)</option>
-              <option value="private">Private Pay</option>
-              <option value="other">Other Insurance</option>
+              <option value="Medi-Cal">Medi-Cal</option>
+              <option value="CCHP (Contra Costa Health Plan)">CCHP (Contra Costa Health Plan)</option>
+              <option value="HPSM (Health Plan of San Mateo)">HPSM (Health Plan of San Mateo)</option>
+              <option value="Private Pay">Private Pay</option>
+              <option value="Other Insurance">Other Insurance</option>
             </select>
           </div>
-          <div class="form-group"><label>Insurance / Member ID (if applicable)</label><input type="text" placeholder="Member ID or Policy Number"/></div>
+          <div class="form-group"><label>Insurance / Member ID (if applicable)</label><input type="text" name="Member ID" placeholder="Member ID or Policy Number"/></div>
 
           <h3 class="fsec">3. Transport Type</h3>
           <div class="transport-options">
-            <input type="radio" name="transport" id="t1" class="transport-opt" value="Wheelchair" checked/>
+            <input type="radio" name="Transport Type" id="t1" class="transport-opt" value="Wheelchair" checked/>
             <label for="t1" class="transport-label"><span class="tl-icon">♿</span>Wheelchair</label>
-            <input type="radio" name="transport" id="t2" class="transport-opt" value="Gurney"/>
+            <input type="radio" name="Transport Type" id="t2" class="transport-opt" value="Gurney"/>
             <label for="t2" class="transport-label"><span class="tl-icon">🛏️</span>Gurney</label>
-            <input type="radio" name="transport" id="t3" class="transport-opt" value="Bariatric Gurney"/>
+            <input type="radio" name="Transport Type" id="t3" class="transport-opt" value="Bariatric Gurney"/>
             <label for="t3" class="transport-label"><span class="tl-icon">⚖️</span>Bariatric Gurney</label>
-            <input type="radio" name="transport" id="t4" class="transport-opt" value="Ambulatory"/>
+            <input type="radio" name="Transport Type" id="t4" class="transport-opt" value="Ambulatory"/>
             <label for="t4" class="transport-label"><span class="tl-icon">🚶</span>Ambulatory</label>
           </div>
 
           <h3 class="fsec">4. Trip Details</h3>
-          <div class="form-group"><label>Pickup Address *</label><input type="text" placeholder="123 Main St, Oakland, CA" required/></div>
-          <div class="form-group"><label>Destination Address *</label><input type="text" placeholder="456 Hospital Ave, Oakland, CA" required/></div>
+          <div class="form-group"><label>Pickup Address *</label><input type="text" name="Pickup Address" placeholder="123 Main St, Oakland, CA" required/></div>
+          <div class="form-group"><label>Destination Address *</label><input type="text" name="Destination Address" placeholder="456 Hospital Ave, Oakland, CA" required/></div>
           <div class="form-row">
-            <div class="form-group"><label>Appointment Date *</label><input type="date" required/></div>
-            <div class="form-group"><label>Appointment Time *</label><input type="time" required/></div>
+            <div class="form-group"><label>Appointment Date *</label><input type="date" name="Appointment Date" required/></div>
+            <div class="form-group"><label>Appointment Time *</label><input type="time" name="Appointment Time" required/></div>
           </div>
           <div class="form-group">
             <label>Type of Appointment</label>
-            <select>
+            <select name="Appointment Type">
               <option value="">— Select —</option>
               <option>Doctor's Appointment</option>
               <option>Dialysis Center</option>
@@ -119,10 +119,10 @@
 
           <h3 class="fsec">5. Special Needs</h3>
           <div class="form-row">
-            <div class="form-group"><label>Stair Assistance?</label><select><option>No</option><option>Yes — Pickup</option><option>Yes — Drop-off</option><option>Yes — Both</option></select></div>
-            <div class="form-group"><label>Oxygen Tank Required?</label><select><option>No</option><option>Yes</option></select></div>
+            <div class="form-group"><label>Stair Assistance?</label><select name="Stair Assistance"><option>No</option><option>Yes — Pickup</option><option>Yes — Drop-off</option><option>Yes — Both</option></select></div>
+            <div class="form-group"><label>Oxygen Tank Required?</label><select name="Oxygen Tank"><option>No</option><option>Yes</option></select></div>
           </div>
-          <div class="form-group"><label>Additional Notes</label><textarea placeholder="Any other information we should know about the patient or trip..."></textarea></div>
+          <div class="form-group"><label>Additional Notes</label><textarea name="Additional Notes" placeholder="Any other information we should know about the patient or trip..."></textarea></div>
           <button type="submit" class="btn btn-danger" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">✚ &nbsp;Submit Ride Request</button>
         </form>
         <div class="success-msg" id="successMsg">✅ Your ride request has been submitted! We'll contact you within a few hours to confirm. For urgent needs, call <a href="tel:5104797328">510-479-7328</a>.</div>
