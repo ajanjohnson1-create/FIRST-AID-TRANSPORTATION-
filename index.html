@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>First Aid Transportation LLC | Bay Area NEMT Provider</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── HERO ── */
+    .home-hero {
+      background: linear-gradient(135deg, #061a35 0%, #0d3060 50%, #0d4a8f 100%);
+      position: relative; overflow: hidden; min-height: 500px; display: flex; align-items: center;
+    }
+    .hero-bg { position: absolute; inset: 0; background: url('banner1.jpg') center/cover no-repeat; opacity: .15; }
+    .hero-inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; width: 100%; }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,.13); color: #fff; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 20px; margin-bottom: 1.25rem; }
+    .hero-inner h1 { font-family: var(--font-head); font-size: clamp(2.4rem,5vw,3.6rem); color: #fff; line-height: 1.1; margin-bottom: 1.2rem; max-width: 680px; }
+    .hero-inner h1 em { font-style: normal; color: #7dc4ff; }
+    .hero-inner .hero-p { color: rgba(255,255,255,.82); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; max-width: 580px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── STATS BOX (below hero) ── */
+    .stats-bar {
+      background: var(--navy);
+      border-bottom: 3px solid var(--blue);
+    }
+    .stats-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 2.5rem;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width: 700px) { .stats-inner { grid-template-columns: repeat(2,1fr); } }
+    .stat-item {
+      padding: 1.5rem 1rem; text-align: center;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: var(--font-logo); font-size: 2.2rem; color: #fff; line-height: 1; }
+    .stat-lbl { font-size: .8rem; color: rgba(255,255,255,.6); margin-top: .3rem; }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip { background: #0d4a8f; padding: 1rem 2.5rem; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: .55rem; color: rgba(255,255,255,.9); font-size: .86rem; font-weight: 500; }
+
+    /* ── SERVICES ── */
+    .svc-card { text-align: center; padding: 1.75rem; }
+    .svc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .svc-card h3 { font-family: var(--font-head); font-size: 1.1rem; margin-bottom: .5rem; }
+    .svc-card p { font-size: .88rem; color: var(--gray); line-height: 1.55; }
+
+    /* ── ABOUT STRIP ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-img { border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); }
+    .about-img img { width: 100%; height: 360px; object-fit: cover; display: block; }
+    .check-list { list-style: none; margin-top: 1.25rem; }
+    .check-list li { padding: .5rem 0; border-bottom: 1px solid var(--border); font-size: .93rem; display: flex; align-items: center; gap: .7rem; }
+    .check-list li::before { content: '✔'; color: var(--blue); font-size: .85rem; flex-shrink: 0; }
+
+    /* ── AREAS ── */
+    .area-chip { background: var(--white); border: 1.5px solid var(--border); border-radius: 30px; padding: .4rem 1.1rem; font-size: .87rem; font-weight: 600; color: var(--navy); transition: all var(--transition); display: inline-block; }
+    .area-chip:hover { background: var(--ice); border-color: var(--sky); color: var(--blue); }
+
+    /* ── CTA ── */
+    .cta-banner { background: linear-gradient(120deg, #0d4a8f 0%, #061a35 100%); padding: 3.5rem 2.5rem; text-align: center; color: #fff; }
+    .cta-banner h2 { font-family: var(--font-head); font-size: clamp(1.6rem,3vw,2.2rem); margin-bottom: .75rem; }
+    .cta-banner p { color: rgba(255,255,255,.78); margin-bottom: 2rem; }
+    .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-white { background: #fff !important; color: #061a35 !important; }
+    .btn-white:hover { background: var(--ice) !important; }
+    .btn-out-w { background: transparent !important; color: #fff !important; border: 2px solid rgba(255,255,255,.5) !important; }
+    .btn-out-w:hover { background: rgba(255,255,255,.1) !important; border-color: #fff !important; }
+  </style>
+</head>
+<body>
+<div id="topbar"></div>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="First Aid Transportation Logo"/>
+    <div class="logo-text">First Aid Transportation LLC<small>Non-Emergency Medical Transportation</small></div>
+  </a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="schedule.html">Schedule a Ride</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="home-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner fade-up">
+    <span class="hero-tag">Bay Area NEMT Provider</span>
+    <h1>Reliable Medical Transportation You Can <em>Count On</em></h1>
+    <p class="hero-p">First Aid Transportation LLC provides safe, compassionate non-emergency medical transportation for patients throughout the Bay Area. Wheelchair, gurney, ambulatory — we handle it all.</p>
+    <div class="hero-btns">
+      <a href="schedule.html" class="btn btn-danger">✚ Schedule a Ride</a>
+      <a href="tel:5104797328" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.45);">📞 510-479-7328</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR (below hero) -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">7+</div><div class="stat-lbl">Years Serving the Bay Area</div></div>
+    <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Counties Covered</div></div>
+    <div class="stat-item"><div class="stat-num">48h</div><div class="stat-lbl">Advance Booking · Urgent Available</div></div>
+    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl">Certified Drivers</div></div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">🛡️ CPR & First Aid Certified</div>
+  <div class="trust-item">♿ Wheelchair & Gurney Equipped</div>
+  <div class="trust-item">💊 Medi-Cal · CCHP · HPSM · Private Pay</div>
+  <div class="trust-item">🕐 Mon–Sat 3AM–8PM + After Hours</div>
+  <div class="trust-item">📍 Oakland, CA Based</div>
+</div>
+
+<!-- SERVICES -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-tag">What We Offer</p>
+    <h2 class="section-title">Our NEMT Services</h2>
+    <p class="section-sub" style="margin-bottom:2.5rem;">Personalized transportation solutions tailored to each patient's unique needs.</p>
+    <div class="grid-4">
+      <div class="card svc-card fade-up"><div class="svc-icon">♿</div><h3>Wheelchair</h3><p>Safe, accessible transport with certified wheelchair securement for every ride.</p></div>
+      <div class="card svc-card fade-up delay-1"><div class="svc-icon">🛏️</div><h3>Gurney / Stretcher</h3><p>Standard and bariatric gurney transport for patients who cannot sit upright.</p></div>
+      <div class="card svc-card fade-up delay-2"><div class="svc-icon">🚶</div><h3>Ambulatory</h3><p>Comfortable rides for patients who can walk with minimal assistance.</p></div>
+      <div class="card svc-card fade-up delay-3"><div class="svc-icon">🏠</div><h3>Door-to-Door</h3><p>Full door-to-door assistance with stair help and oxygen tank vehicles available.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;"><a href="services.html" class="btn btn-outline">View All Services →</a></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="fade-up">
+        <p class="section-tag">About Us</p>
+        <h2 style="font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:1rem;">Uniting Care &amp; Comfort for Every Journey</h2>
+        <p style="color:var(--gray);line-height:1.7;margin-bottom:1rem;font-size:.97rem;">Serving the Bay Area for over seven years with safe, efficient, and compassionate NEMT services. We require 48-hour advance notice — urgent requests available.</p>
+        <ul class="check-list">
+          <li>Certified in Defensive Driving, CPR & First Aid/AED</li>
+          <li>Wheelchair & Gurney Securement Certified</li>
+          <li>Pre-employment Screening & Yearly Training</li>
+          <li>Medi-Cal · Contra Costa Health Plan · HPSM · Private Pay</li>
+        </ul>
+        <div style="margin-top:1.5rem;"><a href="about.html" class="btn btn-primary">Learn More About Us</a></div>
+      </div>
+      <div class="about-img fade-up delay-2"><img src="van5.jpg" alt="First Aid Transportation LLC van"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-tag">Coverage</p>
+    <h2 class="section-title">Service Areas</h2>
+    <p class="section-sub">Serving patients across five Bay Area counties.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem;">
+      <span class="area-chip">Alameda County</span><span class="area-chip">Contra Costa County</span>
+      <span class="area-chip">Santa Clara County</span><span class="area-chip">San Francisco Area</span>
+      <span class="area-chip">San Mateo County</span><span class="area-chip">Oakland</span>
+      <span class="area-chip">Berkeley</span><span class="area-chip">Fremont</span>
+      <span class="area-chip">Hayward</span><span class="area-chip">San Leandro</span>
+      <span class="area-chip">Richmond</span><span class="area-chip">Emeryville</span>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO CAROUSEL -->
+<section class="section">
+  <div class="container">
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+        <img src="banner1.jpg" alt="First Aid Transportation van at airport"/>
+        <img src="van1.jpg" alt="First Aid Transportation van"/>
+        <img src="van2.jpg" alt="First Aid Transportation van at facility"/>
+        <img src="van3.jpg" alt="Wheelchair lift equipped van"/>
+        <img src="van4.jpg" alt="First Aid Transportation van rear"/>
+        <img src="van5.jpg" alt="First Aid Transportation LLC van"/>
+      </div>
+      <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8249;</button>
+      <button class="carousel-btn next" onclick="moveCarousel(1)">&#8250;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Ready to Schedule Your Ride?</h2>
+  <p>Our team is standing by. Call us or fill out our online form today.</p>
+  <div class="cta-btns">
+    <a href="schedule.html" class="btn btn-white">✚ Schedule a Ride Online</a>
+    <a href="tel:5104797328" class="btn btn-out-w">📞 Call 510-479-7328</a>
+  </div>
+</section>
+
+<div id="footer"></div>
+<script src="shared.js"></script>
+<script>
+  document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
+
+  // Carousel
+  let current = 0;
+  const total = 6;
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('carouselDots');
+
+  // Build dots
+  for(let i=0;i<total;i++){
+    const d = document.createElement('span');
+    if(i===0) d.classList.add('active');
+    d.addEventListener('click',()=>goTo(i));
+    dotsContainer.appendChild(d);
+  }
+
+  function goTo(n){
+    current = (n + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    document.querySelectorAll('.carousel-dots span').forEach((d,i)=>d.classList.toggle('active',i===current));
+  }
+  function moveCarousel(dir){ goTo(current + dir); }
+
+  // Auto-advance every 4s
+  setInterval(()=>moveCarousel(1), 4000);
+</script>
+</body>
+</html>

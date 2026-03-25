@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | First Aid Transportation LLC</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .mission-box { background: var(--ice); border-radius: var(--radius); border: 1px solid var(--border); padding: 2.5rem; margin-bottom: 2.5rem; }
+    .mission-box h2 { font-family: var(--font-head); font-size: 1.4rem; margin-bottom: 1rem; }
+    .mission-box p { color: var(--gray); line-height: 1.75; font-size: .97rem; }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .cert-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; box-shadow: var(--shadow-sm); }
+    .cert-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .cert-card h4 { font-family: var(--font-head); font-size: .95rem; margin-bottom: .35rem; }
+    .cert-card p { font-size: .83rem; color: var(--gray); line-height: 1.5; }
+    .req-list { list-style: none; margin-top: 1rem; }
+    .req-list li { padding: .85rem 1rem; background: var(--white); border-radius: 10px; border: 1px solid var(--border); margin-bottom: .75rem; font-size: .95rem; display: flex; gap: .75rem; align-items: flex-start; }
+    .req-list li span { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+  </style>
+</head>
+<body>
+<div id="topbar"></div>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="First Aid Transportation Logo"/>
+    <div class="logo-text">First Aid Transportation LLC<small>Non-Emergency Medical Transportation</small></div>
+  </a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="schedule.html">Schedule a Ride</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+<div class="page-hero fade-up">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="index.html">Home</a> › About Us</p>
+    <h1>Uniting Care &amp; Comfort for Every Journey</h1>
+    <p>Learn about our mission, certifications, and the standards that make First Aid Transportation LLC the trusted NEMT provider in the Bay Area.</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="mission-box fade-up">
+      <h2>Our Mission Statement</h2>
+      <p>We are wholeheartedly dedicated to delivering the highest level of efficiency in medical transportation for all our valued patients. Our unwavering commitment is your assurance that our drivers will always be punctual for every medical appointment, ensuring your peace of mind and convenience.</p>
+      <p style="margin-top:1rem;">We specialize in non-emergency medical transportation and have been serving the Bay Area for the past seven years. To begin transportation, we require a 48-hour notice in advance and documentation, including the patient's information.</p>
+      <p style="margin-top:1rem;">For urgent transport requests, we can respond quickly. The best way to refer a new patient is by scheduling a ride through our website or giving us a call with the patient's demographic sheet and appointment details.</p>
+    </div>
+    <p class="section-tag">Driver Certifications</p>
+    <h2 class="section-title">Our Certified Team</h2>
+    <p class="section-sub">Every driver undergoes rigorous training and background checks before serving patients.</p>
+    <div class="cert-grid">
+      <div class="cert-card fade-up"><div class="cert-icon">🚗</div><h4>Defensive Driving</h4><p>All drivers certified in safe, defensive driving techniques.</p></div>
+      <div class="cert-card fade-up delay-1"><div class="cert-icon">❤️</div><h4>CPR & First Aid / AED</h4><p>Prepared to respond to medical situations during transport.</p></div>
+      <div class="cert-card fade-up delay-2"><div class="cert-icon">♿</div><h4>Wheelchair Securement</h4><p>Certified in safe wheelchair loading, securing, and unloading.</p></div>
+      <div class="cert-card fade-up delay-3"><div class="cert-icon">🛏️</div><h4>Gurney Securement</h4><p>Trained for safe gurney/stretcher transport procedures.</p></div>
+      <div class="cert-card fade-up"><div class="cert-icon">🔍</div><h4>Pre-Employment Screening</h4><p>All staff undergo thorough background checks before hire.</p></div>
+      <div class="cert-card fade-up delay-1"><div class="cert-icon">📋</div><h4>Yearly Training</h4><p>Ongoing annual training for medical transport best practices.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <div style="max-width:680px;">
+      <p class="section-tag">How to Get Started</p>
+      <h2 class="section-title">Booking Requirements</h2>
+      <ul class="req-list" style="margin-top:1.5rem;">
+        <li><span>⏰</span><div><strong>48-Hour Advance Notice:</strong> We require a 48-hour notice in advance along with the patient's documentation.</div></li>
+        <li><span>🚨</span><div><strong>Urgent Requests:</strong> We can respond quickly. Call <a href="tel:5104797328">510-479-7328</a> directly.</div></li>
+        <li><span>📄</span><div><strong>New Patient Referrals:</strong> Schedule online or call with the patient's demographic sheet and appointment details.</div></li>
+        <li><span>💊</span><div><strong>Insurance Accepted:</strong> Medi-Cal, Contra Costa Health Plan (CCHP), HPSM, and Private Pay.</div></li>
+        <li><span>🛡️</span><div><strong>Fully Insured:</strong> Our company carries full insurance coverage for all services.</div></li>
+      </ul>
+      <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="schedule.html" class="btn btn-primary">✚ Schedule a Ride</a>
+        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="shared.js"></script>
+<script>document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});</script>
+</body>
+</html>

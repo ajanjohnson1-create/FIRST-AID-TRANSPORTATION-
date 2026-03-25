@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | First Aid Transportation LLC</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .svc-big-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width:640px) { .svc-big-grid { grid-template-columns: 1fr; } }
+    .svc-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm); transition: all var(--transition); display: flex; flex-direction: column; gap: .75rem; }
+    .svc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--sky); }
+    .svc-card .icon { font-size: 2.2rem; }
+    .svc-card h3 { font-family: var(--font-head); font-size: 1.2rem; color: var(--navy); }
+    .svc-card p { font-size: .9rem; color: var(--gray); line-height: 1.6; }
+    .dest-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .dest-card { background: var(--ice); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; }
+    .dest-card .icon { font-size: 2rem; margin-bottom: .75rem; }
+    .dest-card h4 { font-family: var(--font-head); font-size: 1rem; }
+    .hours-card { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 2rem; margin-top: 2rem; }
+    .hours-card h3 { font-family: var(--font-head); font-size: 1.3rem; margin-bottom: 1.25rem; }
+    .hours-row { display: flex; justify-content: space-between; padding: .65rem 0; border-bottom: 1px solid rgba(255,255,255,.1); font-size: .93rem; }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .time { color: #7dc4ff; font-weight: 600; }
+    .badge { display: inline-block; background: var(--red); color: #fff; font-size: .7rem; font-weight: 700; padding: .2rem .6rem; border-radius: 20px; margin-left: .5rem; vertical-align: middle; }
+    .area-chip { background: var(--ice); border: 1.5px solid var(--border); border-radius: 30px; padding: .4rem 1.1rem; font-size: .87rem; font-weight: 600; color: var(--navy); display: inline-block; }
+  </style>
+</head>
+<body>
+<div id="topbar"></div>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="First Aid Transportation Logo"/>
+    <div class="logo-text">First Aid Transportation LLC<small>Non-Emergency Medical Transportation</small></div>
+  </a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="schedule.html">Schedule a Ride</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+<div class="page-hero fade-up">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="index.html">Home</a> › Services</p>
+    <h1>Caring Transit Solutions</h1>
+    <p>Our commitment to your comfort and care takes center stage. Personalized support tailored to your unique needs — no matter where you need to go.</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <p class="section-tag">Our Specializations</p>
+    <h2 class="section-title">What We Transport</h2>
+    <p class="section-sub" style="margin-bottom:2rem;">We specialize in the following transport modes to accommodate every patient's needs.</p>
+    <div class="svc-big-grid">
+      <div class="svc-card fade-up"><div class="icon">♿</div><h3>Wheelchair Transport</h3><p>Safe, reliable wheelchair transport with certified securement. Vehicles equipped with ramps and lifts for full accessibility.</p></div>
+      <div class="svc-card fade-up delay-1"><div class="icon">🛏️</div><h3>Gurney / Stretcher</h3><p>Standard gurney transport for patients who are unable to sit upright or are bed-bound. Full securement and comfort measures.</p></div>
+      <div class="svc-card fade-up delay-2"><div class="icon">⚖️</div><h3>Bariatric Gurney</h3><p>Specialized bariatric gurney transport for patients requiring extra accommodation. Our team is trained and equipped.</p></div>
+      <div class="svc-card fade-up delay-3"><div class="icon">🚶</div><h3>Ambulatory Transport</h3><p>Comfortable rides for patients who can walk independently or with minimal assistance. Door-to-door care included.</p></div>
+      <div class="svc-card fade-up"><div class="icon">🏠</div><h3>Door-to-Door Assistance</h3><p>We assist patients from their door to the vehicle and all the way to their destination — every step of the way.</p></div>
+      <div class="svc-card fade-up delay-1"><div class="icon">🪜</div><h3>Stair Assistance</h3><p>Trained staff provide safe stair assistance for patients who need help navigating stairs at home or medical facilities.</p></div>
+      <div class="svc-card fade-up delay-2"><div class="icon">💨</div><h3>Oxygen Tank Vehicles</h3><p>Vehicles equipped to transport patients who require oxygen tanks during transit. Safety and comfort guaranteed.</p></div>
+      <div class="svc-card fade-up delay-3" style="background:var(--ice);">
+        <div class="icon">📞</div><h3>Need a Custom Solution?</h3>
+        <p>Call us at <a href="tel:5104797328" style="color:var(--blue);font-weight:600;">510-479-7328</a> and we'll find the right solution for you.</p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:.5rem;width:fit-content;">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-tag">Destinations</p>
+    <h2 class="section-title">We Transport To &amp; From</h2>
+    <div class="dest-grid">
+      <div class="dest-card fade-up"><div class="icon">🩺</div><h4>Doctor's Appointments</h4></div>
+      <div class="dest-card fade-up delay-1"><div class="icon">💉</div><h4>Dialysis Centers</h4></div>
+      <div class="dest-card fade-up delay-2"><div class="icon">🏥</div><h4>Outpatient Surgery</h4></div>
+      <div class="dest-card fade-up delay-3"><div class="icon">🛍️</div><h4>Social Outings / Shopping</h4></div>
+      <div class="dest-card fade-up"><div class="icon">💊</div><h4>Pharmacy Visits</h4></div>
+      <div class="dest-card fade-up delay-1"><div class="icon">🧪</div><h4>Lab & Imaging</h4></div>
+      <div class="dest-card fade-up delay-2"><div class="icon">🏨</div><h4>Hospital Discharge</h4></div>
+      <div class="dest-card fade-up delay-3"><div class="icon">🧑‍⚕️</div><h4>Specialist Visits</h4></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+    <div>
+      <p class="section-tag">Service Hours</p>
+      <h2 class="section-title">Hours of Operation</h2>
+      <div class="hours-card fade-up">
+        <h3>🕐 When We're Available</h3>
+        <div class="hours-row"><span>Monday – Saturday</span><span class="time">3:00 AM – 8:00 PM</span></div>
+        <div class="hours-row"><span>After Hours <span class="badge">Available</span></span><span class="time">By Advance Schedule</span></div>
+        <div class="hours-row"><span>Sundays <span class="badge">Available</span></span><span class="time">By Advance Schedule</span></div>
+        <div class="hours-row"><span>Holidays <span class="badge">Available</span></span><span class="time">By Advance Schedule</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="section-tag">Coverage</p>
+      <h2 class="section-title">Service Areas</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2rem;">
+        <span class="area-chip">Alameda County</span><span class="area-chip">Contra Costa County</span>
+        <span class="area-chip">Santa Clara County</span><span class="area-chip">San Francisco Area</span>
+        <span class="area-chip">San Mateo County</span>
+      </div>
+      <a href="schedule.html" class="btn btn-danger">✚ Schedule a Ride</a>
+    </div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="shared.js"></script>
+<script>document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});</script>
+</body>
+</html>

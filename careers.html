@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Careers | First Aid Transportation LLC</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .careers-layout { display: grid; grid-template-columns: 1fr 380px; gap: 2.5rem; align-items: start; }
+    @media (max-width:860px) { .careers-layout { grid-template-columns: 1fr; } }
+    .job-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm); margin-bottom: 1.25rem; transition: all var(--transition); }
+    .job-card:hover { box-shadow: var(--shadow-md); border-color: var(--sky); }
+    .job-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .job-title { font-family: var(--font-head); font-size: 1.2rem; }
+    .job-badge { background: var(--ice); color: var(--blue); font-size: .78rem; font-weight: 700; padding: .3rem .8rem; border-radius: 20px; }
+    .job-card p { font-size: .92rem; color: var(--gray); line-height: 1.65; }
+    .req-section { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; margin-top: 1.5rem; }
+    .req-section h3 { font-family: var(--font-head); font-size: 1.1rem; margin-bottom: 1.25rem; }
+    .req-group { margin-bottom: 1.25rem; }
+    .req-group:last-child { margin-bottom: 0; }
+    .req-group h4 { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: .6rem; }
+    .req-list { list-style: none; }
+    .req-list li { font-size: .9rem; color: var(--gray); padding: .4rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: .6rem; line-height: 1.5; }
+    .req-list li:last-child { border-bottom: none; }
+    .req-list li::before { content: '✔'; color: var(--blue); font-size: .8rem; flex-shrink: 0; margin-top: .15rem; }
+    .apply-form { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow-sm); position: sticky; top: 90px; }
+    .file-upload-area { border: 2px dashed var(--border); border-radius: 10px; padding: 1.5rem; text-align: center; cursor: pointer; transition: all var(--transition); background: var(--off-white); }
+    .file-upload-area:hover { border-color: var(--sky); background: var(--ice); }
+    .file-upload-area.has-file { border-color: #4caf50; background: #f1f8f1; }
+    .file-upload-area .u-icon { font-size: 2rem; margin-bottom: .5rem; }
+    .file-upload-area p { font-size: .88rem; color: var(--gray); margin: 0; }
+    .file-upload-area strong { color: var(--blue); }
+    #resumeInput { display: none; }
+    #fileName { font-size: .82rem; color: #4caf50; font-weight: 600; margin-top: .5rem; display: none; }
+  </style>
+</head>
+<body>
+<div id="topbar"></div>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="First Aid Transportation Logo"/>
+    <div class="logo-text">First Aid Transportation LLC<small>Non-Emergency Medical Transportation</small></div>
+  </a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="schedule.html">Schedule a Ride</a></li>
+    <li><a href="careers.html" class="active">Careers</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+<div class="page-hero fade-up">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="index.html">Home</a> › Careers</p>
+    <h1>Join Our Team</h1>
+    <p>Be part of a compassionate team making a real difference in patients' lives every day. We're looking for dedicated drivers in the Oakland Bay Area.</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="careers-layout">
+      <div>
+        <p class="section-tag">Open Positions</p>
+        <h2 class="section-title">Current Openings</h2>
+        <p class="section-sub" style="margin-bottom:2rem;">We're always looking for caring, certified professionals to grow with us.</p>
+        <div class="job-card fade-up">
+          <div class="job-header"><h3 class="job-title">NEMT Driver — Wheelchair & Ambulatory</h3><span class="job-badge">Full-Time</span></div>
+          <p>Transport patients safely to and from medical appointments throughout the Bay Area. Provide compassionate, door-to-door assistance.</p>
+        </div>
+        <div class="job-card fade-up delay-1">
+          <div class="job-header"><h3 class="job-title">Gurney Transport Specialist</h3><span class="job-badge">Full-Time</span></div>
+          <p>Specialize in gurney and bariatric transport for patients who cannot sit upright. Requires training in stretcher securement and patient care.</p>
+        </div>
+        <div class="req-section fade-up delay-2">
+          <h3>📋 Driver Requirements</h3>
+          <p style="font-size:.9rem;color:var(--gray);margin-bottom:1.25rem;line-height:1.6;">All applicants must meet the following requirements to be considered for a driving position:</p>
+          <div class="req-group">
+            <h4>Background & Licensing</h4>
+            <ul class="req-list">
+              <li>Clean background — County & Nation 7-Year Search</li>
+              <li>Valid California Driver's License</li>
+              <li>Clean Motor Vehicle Record (MVR)</li>
+            </ul>
+          </div>
+          <div class="req-group">
+            <h4>Driving Record — Last 3 Years</h4>
+            <ul class="req-list">
+              <li>No more than 1 moving violation / ticket</li>
+              <li>No more than 1 at-fault accident</li>
+              <li>No license suspensions in the last 3 years</li>
+            </ul>
+          </div>
+          <div class="req-group">
+            <h4>Health & Physical</h4>
+            <ul class="req-list">
+              <li>Clean Drug Test — 10 Panel required</li>
+              <li>Must be able to pass a DOT Physical examination</li>
+            </ul>
+          </div>
+          <div class="req-group">
+            <h4>Certifications (Must Obtain)</h4>
+            <ul class="req-list">
+              <li>CPR & First Aid / AED Certified</li>
+              <li>Wheelchair & Gurney Securement Certified</li>
+              <li>Defensive Driving Certification</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="apply-form fade-up delay-2">
+        <p class="section-tag">Apply Now</p>
+        <h3 style="font-family:var(--font-head);font-size:1.3rem;margin-bottom:.5rem;">Submit Your Application</h3>
+        <p style="font-size:.88rem;color:var(--gray);margin-bottom:1.75rem;line-height:1.55;">Fill out the form and attach your resume. We'll be in touch!</p>
+        <form id="careerForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label>First Name *</label><input type="text" required placeholder="Jane"/></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" required placeholder="Doe"/></div>
+          </div>
+          <div class="form-group"><label>Phone *</label><input type="tel" required placeholder="(510) 000-0000"/></div>
+          <div class="form-group"><label>Email *</label><input type="email" required placeholder="you@example.com"/></div>
+          <div class="form-group">
+            <label>Position Applying For *</label>
+            <select required>
+              <option value="">— Select —</option>
+              <option>NEMT Driver — Wheelchair & Ambulatory</option>
+              <option>Gurney Transport Specialist</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Valid CA Driver's License? *</label>
+            <select required><option value="">— Select —</option><option value="yes">Yes</option><option value="no">No</option></select>
+          </div>
+          <div class="form-group">
+            <label>Upload Resume (PDF or Word)</label>
+            <div class="file-upload-area" id="uploadArea" onclick="document.getElementById('resumeInput').click()">
+              <div class="u-icon">📄</div>
+              <p><strong>Click to upload</strong> or drag & drop</p>
+              <p>PDF, DOC, or DOCX — Max 5MB</p>
+              <div id="fileName"></div>
+            </div>
+            <input type="file" id="resumeInput" name="resume" accept=".pdf,.doc,.docx" onchange="handleFile(this)"/>
+          </div>
+          <div class="form-group"><label>Tell Us About Yourself</label><textarea placeholder="Brief experience, certifications, why you want to work with us..."></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;">Submit Application</button>
+        </form>
+        <div class="success-msg" id="successMsg">✅ Thank you for applying! We'll be in touch within a few business days. Email us at <a href="mailto:firstaidtransportation@gmail.com">firstaidtransportation@gmail.com</a>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="shared.js"></script>
+<script>
+  document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
+  function handleFile(input){const file=input.files[0];if(file){document.getElementById('uploadArea').classList.add('has-file');const fn=document.getElementById('fileName');fn.style.display='block';fn.textContent='✅ '+file.name;}}
+  function handleSubmit(e){e.preventDefault();document.getElementById('careerForm').style.display='none';document.getElementById('successMsg').style.display='block';}
+  const ua=document.getElementById('uploadArea');
+  ua.addEventListener('dragover',e=>{e.preventDefault();ua.style.borderColor='var(--sky)';});
+  ua.addEventListener('dragleave',()=>{ua.style.borderColor='';});
+  ua.addEventListener('drop',e=>{e.preventDefault();if(e.dataTransfer.files[0]){document.getElementById('resumeInput').files=e.dataTransfer.files;handleFile(document.getElementById('resumeInput'));}});
+</script>
+</body>
+</html>

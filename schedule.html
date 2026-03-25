@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Schedule a Ride | First Aid Transportation LLC</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .schedule-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start; }
+    @media (max-width:860px) { .schedule-layout { grid-template-columns: 1fr; } }
+    .form-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow-sm); }
+    .fsec { font-family: var(--font-head); font-size: 1.05rem; color: var(--navy); margin: 1.75rem 0 1rem; padding-top: 1.75rem; border-top: 1px solid var(--border); }
+    .fsec:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
+    .transport-options { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 1.25rem; }
+    .transport-opt { display: none; }
+    .transport-label { border: 1.5px solid var(--border); border-radius: 10px; padding: .85rem 1rem; cursor: pointer; font-size: .88rem; font-weight: 500; text-align: center; transition: all var(--transition); user-select: none; display: flex; flex-direction: column; align-items: center; gap: .35rem; }
+    .transport-label .tl-icon { font-size: 1.4rem; }
+    .transport-opt:checked + .transport-label { border-color: var(--blue); background: var(--ice); color: var(--blue); font-weight: 600; }
+    .transport-label:hover { border-color: var(--sky); background: var(--off-white); }
+    .side-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .info-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow-sm); }
+    .info-card h4 { font-family: var(--font-head); font-size: 1rem; margin-bottom: 1rem; }
+    .step-list { list-style: none; counter-reset: steps; }
+    .step-list li { counter-increment: steps; display: flex; gap: .75rem; padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: .88rem; color: var(--gray); }
+    .step-list li:last-child { border-bottom: none; }
+    .step-list li::before { content: counter(steps); min-width: 24px; height: 24px; background: var(--blue); color: #fff; border-radius: 50%; display: grid; place-items: center; font-size: .75rem; font-weight: 700; flex-shrink: 0; }
+    .pay-opt { background: var(--ice); border-radius: 8px; padding: .6rem .9rem; font-size: .88rem; font-weight: 600; color: var(--navy); margin-bottom: .45rem; }
+  </style>
+</head>
+<body>
+<div id="topbar"></div>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="First Aid Transportation Logo"/>
+    <div class="logo-text">First Aid Transportation LLC<small>Non-Emergency Medical Transportation</small></div>
+  </a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="schedule.html" class="active">Schedule a Ride</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+<div class="page-hero fade-up">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="index.html">Home</a> › Schedule a Ride</p>
+    <h1>Schedule a Ride</h1>
+    <p>Fill out the form below to book your non-emergency medical transportation. We require 48-hour advance notice. For urgent requests, call us directly.</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="schedule-layout">
+      <div class="form-card fade-up">
+        <form id="scheduleForm" onsubmit="handleSubmit(event)">
+          <h3 class="fsec">1. Patient Information</h3>
+          <div class="form-row">
+            <div class="form-group"><label>First Name *</label><input type="text" placeholder="Jane" required/></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Doe" required/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Date of Birth</label><input type="date"/></div>
+            <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="(510) 000-0000" required/></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div>
+
+          <h3 class="fsec">2. Payment / Insurance</h3>
+          <div class="form-group">
+            <label>Payment Method *</label>
+            <select required>
+              <option value="">— Select Payment Method —</option>
+              <option value="medi-cal">Medi-Cal</option>
+              <option value="cchp">Contra Costa Health Plan (CCHP)</option>
+              <option value="hpsm">HPSM (Health Plan of San Mateo)</option>
+              <option value="private">Private Pay</option>
+              <option value="other">Other Insurance</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Insurance / Member ID (if applicable)</label><input type="text" placeholder="Member ID or Policy Number"/></div>
+
+          <h3 class="fsec">3. Transport Type</h3>
+          <div class="transport-options">
+            <input type="radio" name="transport" id="t1" class="transport-opt" value="Wheelchair" checked/>
+            <label for="t1" class="transport-label"><span class="tl-icon">♿</span>Wheelchair</label>
+            <input type="radio" name="transport" id="t2" class="transport-opt" value="Gurney"/>
+            <label for="t2" class="transport-label"><span class="tl-icon">🛏️</span>Gurney</label>
+            <input type="radio" name="transport" id="t3" class="transport-opt" value="Bariatric Gurney"/>
+            <label for="t3" class="transport-label"><span class="tl-icon">⚖️</span>Bariatric Gurney</label>
+            <input type="radio" name="transport" id="t4" class="transport-opt" value="Ambulatory"/>
+            <label for="t4" class="transport-label"><span class="tl-icon">🚶</span>Ambulatory</label>
+          </div>
+
+          <h3 class="fsec">4. Trip Details</h3>
+          <div class="form-group"><label>Pickup Address *</label><input type="text" placeholder="123 Main St, Oakland, CA" required/></div>
+          <div class="form-group"><label>Destination Address *</label><input type="text" placeholder="456 Hospital Ave, Oakland, CA" required/></div>
+          <div class="form-row">
+            <div class="form-group"><label>Appointment Date *</label><input type="date" required/></div>
+            <div class="form-group"><label>Appointment Time *</label><input type="time" required/></div>
+          </div>
+          <div class="form-group">
+            <label>Type of Appointment</label>
+            <select>
+              <option value="">— Select —</option>
+              <option>Doctor's Appointment</option>
+              <option>Dialysis Center</option>
+              <option>Outpatient Surgery</option>
+              <option>Hospital Discharge</option>
+              <option>Physical Therapy</option>
+              <option>Lab / Imaging</option>
+              <option>Social Outing / Shopping</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <h3 class="fsec">5. Special Needs</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Stair Assistance?</label><select><option>No</option><option>Yes — Pickup</option><option>Yes — Drop-off</option><option>Yes — Both</option></select></div>
+            <div class="form-group"><label>Oxygen Tank Required?</label><select><option>No</option><option>Yes</option></select></div>
+          </div>
+          <div class="form-group"><label>Additional Notes</label><textarea placeholder="Any other information we should know about the patient or trip..."></textarea></div>
+          <button type="submit" class="btn btn-danger" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">✚ &nbsp;Submit Ride Request</button>
+        </form>
+        <div class="success-msg" id="successMsg">✅ Your ride request has been submitted! We'll contact you within a few hours to confirm. For urgent needs, call <a href="tel:5104797328">510-479-7328</a>.</div>
+      </div>
+
+      <div class="side-info fade-up delay-2">
+        <div class="info-card">
+          <h4>📋 How It Works</h4>
+          <ol class="step-list">
+            <li>Fill out the form with patient and trip details.</li>
+            <li>Submit at least 48 hours before the appointment.</li>
+            <li>We'll confirm your booking via phone or email.</li>
+            <li>Our certified driver arrives on time, door-to-door.</li>
+          </ol>
+        </div>
+        <div class="info-card">
+          <h4>💊 Insurance We Accept</h4>
+          <div class="pay-opt">✓ Medi-Cal</div>
+          <div class="pay-opt">✓ Contra Costa Health Plan (CCHP)</div>
+          <div class="pay-opt">✓ HPSM (Health Plan of San Mateo)</div>
+          <div class="pay-opt">✓ Private Pay</div>
+        </div>
+        <div class="info-card">
+          <h4>📞 Prefer to Call?</h4>
+          <p style="font-size:.88rem;color:var(--gray);margin-bottom:1rem;">For urgent requests call us directly:</p>
+          <a href="tel:5104797328" class="btn btn-primary" style="width:100%;justify-content:center;">510-479-7328</a>
+        </div>
+        <div class="info-card" style="background:var(--ice);">
+          <h4>🕐 Service Hours</h4>
+          <p style="font-size:.88rem;color:var(--gray);line-height:1.65;"><strong>Mon–Sat:</strong> 3:00 AM – 8:00 PM<br/><strong>After Hours, Sundays & Holidays:</strong> Available if scheduled in advance.</p>
+        </div>
+        <div class="contact-box">
+          <div class="contact-item"><div class="ci-icon">📍</div><div><span class="ci-label">Address</span><span class="ci-value">1709 International Blvd., Ste. 107<br/>Oakland, CA 94606</span></div></div>
+          <div class="contact-item"><div class="ci-icon">📠</div><div><span class="ci-label">Fax</span><span class="ci-value">510-842-8357</span></div></div>
+          <div class="contact-item"><div class="ci-icon">✉️</div><div><span class="ci-label">Email</span><span class="ci-value"><a href="mailto:firstaidtransportation@gmail.com">firstaidtransportation@gmail.com</a></span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="shared.js"></script>
+<script>
+  document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
+  function handleSubmit(e){e.preventDefault();document.getElementById('scheduleForm').style.display='none';document.getElementById('successMsg').style.display='block';}
+</script>
+</body>
+</html>
