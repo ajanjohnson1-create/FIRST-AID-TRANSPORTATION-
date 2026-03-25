@@ -182,10 +182,11 @@
         <img src="van2.jpg" alt="First Aid Transportation van at facility"/>
         <img src="van3.jpg" alt="Wheelchair lift equipped van"/>
         <img src="van4.jpg" alt="First Aid Transportation van rear"/>
-        <img src="van5.jpg" alt="First Aid Transportation LLC van"/>
+        <!-- clone of first image for seamless loop -->
+        <img src="banner1.jpg" alt="First Aid Transportation van at airport"/>
       </div>
-      <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8249;</button>
-      <button class="carousel-btn next" onclick="moveCarousel(1)">&#8250;</button>
+      <button class="carousel-btn prev" id="prevBtn">&#8249;</button>
+      <button class="carousel-btn next" id="nextBtn">&#8250;</button>
     </div>
     <div class="carousel-dots" id="carouselDots"></div>
   </div>
@@ -206,29 +207,52 @@
 <script>
   document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
 
-  // Carousel
-  let current = 0;
-  const total = 6;
+  // Seamless infinite carousel — 5 real slides + 1 clone at end
+  const REAL = 5;
   const track = document.getElementById('carouselTrack');
   const dotsContainer = document.getElementById('carouselDots');
+  let current = 0;
+  let isTransitioning = false;
 
-  // Build dots
-  for(let i=0;i<total;i++){
+  // Build dots for real slides only
+  for(let i = 0; i < REAL; i++){
     const d = document.createElement('span');
-    if(i===0) d.classList.add('active');
-    d.addEventListener('click',()=>goTo(i));
+    if(i === 0) d.classList.add('active');
+    d.addEventListener('click', () => goTo(i));
     dotsContainer.appendChild(d);
   }
 
-  function goTo(n){
-    current = (n + total) % total;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    document.querySelectorAll('.carousel-dots span').forEach((d,i)=>d.classList.toggle('active',i===current));
+  function updateDots(n){
+    document.querySelectorAll('.carousel-dots span').forEach((d,i) => d.classList.toggle('active', i === n));
   }
-  function moveCarousel(dir){ goTo(current + dir); }
+
+  function goTo(n, animate = true){
+    if(isTransitioning) return;
+    isTransitioning = true;
+    current = n;
+    track.style.transition = animate ? 'transform .5s ease' : 'none';
+    track.style.transform = `translateX(-${current * 100}%)`;
+    updateDots(current % REAL);
+    setTimeout(() => { isTransitioning = false; }, 520);
+  }
+
+  // When we land on the clone (index 5), silently snap back to index 0
+  track.addEventListener('transitionend', () => {
+    if(current >= REAL){
+      track.style.transition = 'none';
+      current = 0;
+      track.style.transform = `translateX(0%)`;
+      updateDots(0);
+    }
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    goTo(current <= 0 ? REAL - 1 : current - 1);
+  });
 
   // Auto-advance every 4s
-  setInterval(()=>moveCarousel(1), 4000);
+  setInterval(() => goTo(current + 1), 4000);
 </script>
 </body>
 </html>
