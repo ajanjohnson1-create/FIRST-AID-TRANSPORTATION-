@@ -52,16 +52,16 @@
         <form id="contactForm" action="https://formspree.io/f/mreogebl" method="POST" onsubmit="handleSubmit(event)">
           <input type="hidden" name="_subject" value="New Contact Message — First Aid Transportation"/>
           <div class="form-row">
-            <div class="form-group"><label>First Name *</label><input type="text" placeholder="Jane" required/></div>
-            <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Doe" required/></div>
+            <div class="form-group"><label>First Name *</label><input type="text" name="First Name" placeholder="Jane" required/></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" name="Last Name" placeholder="Doe" required/></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Phone Number *</label><input type="tel" placeholder="(510) 000-0000" required/></div>
-            <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div>
+            <div class="form-group"><label>Phone Number *</label><input type="tel" name="Phone Number" placeholder="(510) 000-0000" required/></div>
+            <div class="form-group"><label>Email Address</label><input type="email" name="Email" placeholder="you@example.com"/></div>
           </div>
           <div class="form-group">
             <label>Subject / Type of Inquiry</label>
-            <select>
+            <select name="Inquiry Type">
               <option value="">— Select —</option>
               <option>Schedule a Ride</option>
               <option>Medi-Cal / Insurance Inquiry</option>
@@ -71,7 +71,7 @@
               <option>Other</option>
             </select>
           </div>
-          <div class="form-group"><label>Message *</label><textarea placeholder="Let us know how we can help you..." required></textarea></div>
+          <div class="form-group"><label>Message *</label><textarea name="Message" placeholder="Let us know how we can help you..." required></textarea></div>
           <button type="submit" class="btn btn-danger" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">✚ &nbsp;Send Message</button>
         </form>
         <div class="success-msg" id="successMsg">✅ Thank you! We received your message and will be in touch shortly. For urgent needs, call <a href="tel:5104797328">510-479-7328</a>.</div>
