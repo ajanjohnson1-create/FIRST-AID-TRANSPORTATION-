@@ -49,7 +49,8 @@
         <p class="section-tag">Send a Message</p>
         <h2 class="section-title" style="font-size:1.6rem;">How Can We Help You?</h2>
         <p style="color:var(--gray);font-size:.93rem;margin-bottom:2rem;line-height:1.6;">Fill out the form below. To schedule a ride, use our <a href="schedule.html" style="color:var(--blue);font-weight:600;">Schedule a Ride</a> page.</p>
-        <form id="contactForm" onsubmit="handleSubmit(event)">
+        <form id="contactForm" action="https://formspree.io/f/mreogebl" method="POST" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="New Contact Message — First Aid Transportation"/>
           <div class="form-row">
             <div class="form-group"><label>First Name *</label><input type="text" placeholder="Jane" required/></div>
             <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Doe" required/></div>
@@ -113,7 +114,22 @@
 <script src="shared.js"></script>
 <script>
   document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
-  function handleSubmit(e){e.preventDefault();document.getElementById('contactForm').style.display='none';document.getElementById('successMsg').style.display='block';}
+  async function handleSubmit(e){
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+      if(res.ok){
+        form.style.display='none';
+        document.getElementById('successMsg').style.display='block';
+      } else {
+        alert('There was a problem submitting. Please call us at 510-479-7328.');
+      }
+    } catch(err){
+      alert('There was a problem submitting. Please call us at 510-479-7328.');
+    }
+  }
 </script>
 </body>
 </html>
