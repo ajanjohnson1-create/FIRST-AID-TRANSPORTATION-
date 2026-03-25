@@ -40,11 +40,11 @@ body { font-family: var(--font-body); color: var(--navy); background: var(--whit
 nav {
   background: var(--white); padding: 0 2.5rem;
   display: flex; align-items: center; justify-content: space-between;
-  height: 76px; position: sticky; top: 0; z-index: 200;
+  height: 160px; position: sticky; top: 0; z-index: 200;
   border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm);
 }
 .nav-logo { display: flex; align-items: center; gap: .9rem; text-decoration: none; }
-.nav-logo img { width: 50px; height: 50px; object-fit: contain; flex-shrink: 0; }
+.nav-logo img { width: 150px; height: 150px; object-fit: contain; flex-shrink: 0; }
 .logo-text {
   font-family: var(--font-logo);
   font-size: 1.15rem;
@@ -80,7 +80,7 @@ nav {
 @media (max-width: 900px) {
   .topbar { display: none; }
   .hamburger { display: flex; }
-  .nav-links { display: none; position: absolute; top: 76px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 1rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); gap: .25rem; }
+  .nav-links { display: none; position: absolute; top: 160px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 1rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); gap: .25rem; }
   .nav-links.open { display: flex; }
   .nav-links a { padding: .75rem 1rem; border-radius: 8px; }
 }
