@@ -6,36 +6,41 @@
   <title>First Aid Transportation LLC | Bay Area NEMT Provider</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    /* ── HERO ── */
+    /* ── HERO — clean full photo, no overlay ── */
     .home-hero {
-      background: linear-gradient(135deg, #061a35 0%, #0d3060 50%, #0d4a8f 100%);
-      position: relative; overflow: hidden; min-height: 500px; display: flex; align-items: center;
+      width: 100%; line-height: 0;
     }
-    .hero-bg { position: absolute; inset: 0; background: url('banner1.jpg') center/cover no-repeat; opacity: .15; }
-    .hero-inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; width: 100%; }
-    .hero-tag { display: inline-block; background: rgba(255,255,255,.13); color: #fff; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 20px; margin-bottom: 1.25rem; }
-    .hero-inner h1 { font-family: var(--font-head); font-size: clamp(2.4rem,5vw,3.6rem); color: #fff; line-height: 1.1; margin-bottom: 1.2rem; max-width: 680px; }
-    .hero-inner h1 em { font-style: normal; color: #7dc4ff; }
-    .hero-inner .hero-p { color: rgba(255,255,255,.82); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; max-width: 580px; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .home-hero img {
+      width: 100%; max-height: 520px; object-fit: cover; display: block;
+    }
 
-    /* ── STATS BOX (below hero) ── */
+    /* ── BLUE CONTENT BOX (below photo) ── */
     .stats-bar {
-      background: var(--navy);
-      border-bottom: 3px solid var(--blue);
+      background: linear-gradient(135deg, #061a35 0%, #0d3060 60%, #0d4a8f 100%);
+      border-bottom: 3px solid var(--sky);
     }
     .stats-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 2.5rem;
-      display: grid; grid-template-columns: repeat(4, 1fr);
+      max-width: 1100px; margin: 0 auto; padding: 2.5rem 2.5rem 0;
     }
-    @media (max-width: 700px) { .stats-inner { grid-template-columns: repeat(2,1fr); } }
+    /* Hero text inside the blue box */
+    .hero-tag { display: inline-block; background: rgba(255,255,255,.13); color: #fff; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 20px; margin-bottom: 1rem; }
+    .hero-headline { font-family: var(--font-head); font-size: clamp(2rem,4vw,3rem); color: #fff; line-height: 1.1; margin-bottom: 1rem; }
+    .hero-headline em { font-style: normal; color: #7dc4ff; }
+    .hero-p { color: rgba(255,255,255,.82); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 640px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    /* Stats row */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      border-top: 1px solid rgba(255,255,255,.15); margin-top: .5rem;
+    }
+    @media (max-width: 700px) { .stats-row { grid-template-columns: repeat(2,1fr); } }
     .stat-item {
-      padding: 1.5rem 1rem; text-align: center;
+      padding: 1.25rem 1rem; text-align: center;
       border-right: 1px solid rgba(255,255,255,.1);
     }
     .stat-item:last-child { border-right: none; }
-    .stat-num { font-family: var(--font-logo); font-size: 2.2rem; color: #fff; line-height: 1; }
-    .stat-lbl { font-size: .8rem; color: rgba(255,255,255,.6); margin-top: .3rem; }
+    .stat-num { font-family: var(--font-logo); font-size: 2rem; color: #fff; line-height: 1; }
+    .stat-lbl { font-size: .78rem; color: rgba(255,255,255,.6); margin-top: .3rem; }
 
     /* ── TRUST STRIP ── */
     .trust-strip { background: #0d4a8f; padding: 1rem 2.5rem; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; }
@@ -89,27 +94,27 @@
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — clean photo, no overlay -->
 <section class="home-hero">
-  <div class="hero-bg"></div>
-  <div class="hero-inner fade-up">
+  <img src="banner1.jpg" alt="First Aid Transportation van"/>
+</section>
+
+<!-- BLUE BOX — headline + text + buttons + stats -->
+<div class="stats-bar">
+  <div class="stats-inner fade-up">
     <span class="hero-tag">Bay Area NEMT Provider</span>
-    <h1>Reliable Medical Transportation You Can <em>Count On</em></h1>
+    <h1 class="hero-headline">Reliable Medical Transportation You Can <em>Count On</em></h1>
     <p class="hero-p">First Aid Transportation LLC provides safe, compassionate non-emergency medical transportation for patients throughout the Bay Area. Wheelchair, gurney, ambulatory — we handle it all.</p>
     <div class="hero-btns">
       <a href="schedule.html" class="btn btn-danger">✚ Schedule a Ride</a>
-      <a href="tel:5104797328" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.45);">📞 510-479-7328</a>
+      <a href="tel:5104797328" class="btn" style="background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.4);">📞 510-479-7328</a>
     </div>
-  </div>
-</section>
-
-<!-- STATS BAR (below hero) -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item"><div class="stat-num">7+</div><div class="stat-lbl">Years Serving the Bay Area</div></div>
-    <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Counties Covered</div></div>
-    <div class="stat-item"><div class="stat-num">48h</div><div class="stat-lbl">Advance Booking · Urgent Available</div></div>
-    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl">Certified Drivers</div></div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">7+</div><div class="stat-lbl">Years Serving the Bay Area</div></div>
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Counties Covered</div></div>
+      <div class="stat-item"><div class="stat-num">48h</div><div class="stat-lbl">Advance Booking · Urgent Available</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl">Certified Drivers</div></div>
+    </div>
   </div>
 </div>
 
