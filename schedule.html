@@ -44,7 +44,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
     <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
-    <li><a href="schedule.html" class="active" data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</a></li>
+    <li><a href="schedule.html" class="active" data-en="Schedule a Ride" data-es="Reservar un Viaje" data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</a></li>
     <li><a href="careers.html" data-en="Careers" data-es="Empleos">Careers</a></li>
     <li><a href="contact.html" class="nav-cta" data-en="Contact Us" data-es="Contáctenos">Contact Us</a></li>
   </ul>
@@ -212,11 +212,19 @@
       const val=el.getAttribute('data-'+lang);
       if(val!==null) el.innerHTML=val;
     });
-    document.getElementById('btnEN').classList.toggle('active',lang==='en');
-    document.getElementById('btnES').classList.toggle('active',lang==='es');
+    document.querySelectorAll('a[data-en]').forEach(el=>{
+      const val=el.getAttribute('data-'+lang);
+      if(val!==null) el.textContent=val;
+    });
+    const btnEN=document.getElementById('btnEN');
+    const btnES=document.getElementById('btnES');
+    if(btnEN) btnEN.classList.toggle('active',lang==='en');
+    if(btnES) btnES.classList.toggle('active',lang==='es');
   }
-  const savedLang=localStorage.getItem('lang')||'en';
-  if(savedLang==='es') setLang('es');
+  document.addEventListener('DOMContentLoaded', function(){
+    const savedLang=localStorage.getItem('lang')||'en';
+    if(savedLang==='es') setLang('es');
+  });
 
 
   // ── PUBLIC KEY (generated from generate-keys.html) ──
