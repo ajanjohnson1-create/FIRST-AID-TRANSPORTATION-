@@ -44,21 +44,21 @@
 <div class="page-hero fade-up">
   <div class="page-hero-inner">
     <p class="breadcrumb"><a href="index.html">Home</a> › About Us</p>
-    <h1>Uniting Care &amp; Comfort for Every Journey</h1>
-    <p>Learn about our mission, certifications, and the standards that make First Aid Transportation LLC the trusted NEMT provider in the Bay Area.</p>
+    <h1 data-en="Uniting Care &amp; Comfort for Every Journey" data-es="Uniendo Cuidado y Comodidad en Cada Viaje">Uniting Care &amp; Comfort for Every Journey</h1>
+    <p>data-en="Learn about our mission, certifications, and the standards that make First Aid Transportation LLC the trusted NEMT provider in the Bay Area." data-es="Conozca nuestra misión, certificaciones y los estándares que hacen que First Aid Transportation LLC sea el proveedor NEMT de confianza en el Área de la Bahía.">Learn about our mission, certifications, and the standards that make First Aid Transportation LLC the trusted NEMT provider in the Bay Area.</p>
   </div>
 </div>
 <section class="section">
   <div class="container">
     <div class="mission-box fade-up">
-      <h2>Our Mission Statement</h2>
-      <p>We are wholeheartedly dedicated to delivering the highest level of efficiency in medical transportation for all our valued patients. Our unwavering commitment is your assurance that our drivers will always be punctual for every medical appointment, ensuring your peace of mind and convenience.</p>
-      <p style="margin-top:1rem;">We specialize in non-emergency medical transportation and have been serving the Bay Area for the past seven years. To begin transportation, we require a 48-hour notice in advance and documentation, including the patient's information.</p>
-      <p style="margin-top:1rem;">For urgent transport requests, we can respond quickly. The best way to refer a new patient is by scheduling a ride through our website or giving us a call with the patient's demographic sheet and appointment details.</p>
+      <h2>data-en="Our Mission Statement" data-es="Nuestra Declaración de Misión" data-en="Our Mission Statement" data-es="Nuestra Declaración de Misión">Our Mission Statement</h2>
+      <p>data-en="We are wholeheartedly dedicated to delivering the highest level of efficiency in medical transportation for all our valued patients. Our unwavering commitment is your assurance that our drivers will always be punctual for every medical appointment, ensuring your peace of mind and convenience." data-es="Estamos completamente dedicados a ofrecer el más alto nivel de eficiencia en transporte médico para todos nuestros pacientes valiosos. Nuestro compromiso inquebrantable es su garantía de que nuestros conductores siempre serán puntuales en cada cita médica, asegurando su tranquilidad y comodidad.">We are wholeheartedly dedicated to delivering the highest level of efficiency in medical transportation for all our valued patients. Our unwavering commitment is your assurance that our drivers will always be punctual for every medical appointment, ensuring your peace of mind and convenience.</p>
+      <p style="margin-top:1rem;">data-en="We specialize in non-emergency medical transportation and have been serving the Bay Area for the past seven years. To begin transportation, we require a 48-hour notice in advance and documentation, including the patient's information." data-es="Nos especializamos en transporte médico no de emergencia y hemos estado sirviendo al Área de la Bahía durante los últimos siete años. Para comenzar el transporte, requerimos un aviso de 48 horas con anticipación y documentación, incluyendo la información del paciente.">We specialize in non-emergency medical transportation and have been serving the Bay Area for the past seven years. To begin transportation, we require a 48-hour notice in advance and documentation, including the patient's information.</p>
+      <p style="margin-top:1rem;">data-en="For urgent transport requests, we can respond quickly. The best way to refer a new patient is by scheduling a ride through our website or giving us a call with the patient's demographic sheet and appointment details." data-es="Para solicitudes de transporte urgente, podemos responder rápidamente. La mejor manera de referir a un nuevo paciente es programar un viaje a través de nuestro sitio web o llamarnos con la hoja demográfica del paciente y los detalles de la cita.">For urgent transport requests, we can respond quickly. The best way to refer a new patient is by scheduling a ride through our website or giving us a call with the patient's demographic sheet and appointment details.</p>
     </div>
     <p class="section-tag">Driver Certifications</p>
-    <h2 class="section-title">Our Certified Team</h2>
-    <p class="section-sub">Every driver undergoes rigorous training and background checks before serving patients.</p>
+    <h2 class="section-title">data-en="Our Certified Team" data-es="Nuestro Equipo Certificado" data-en="Our Certified Team" data-es="Nuestro Equipo Certificado">Our Certified Team</h2>
+    <p class="section-sub">data-en="Every driver undergoes rigorous training and background checks before serving patients." data-es="Cada conductor se somete a capacitación rigurosa y verificaciones de antecedentes antes de servir a los pacientes.">Every driver undergoes rigorous training and background checks before serving patients.</p>
     <div class="cert-grid">
       <div class="cert-card fade-up"><div class="cert-icon">🚗</div><h4>Defensive Driving</h4><p>All drivers certified in safe, defensive driving techniques.</p></div>
       <div class="cert-card fade-up delay-1"><div class="cert-icon">❤️</div><h4>CPR & First Aid / AED</h4><p>Prepared to respond to medical situations during transport.</p></div>
@@ -73,7 +73,7 @@
   <div class="container">
     <div style="max-width:680px;">
       <p class="section-tag">How to Get Started</p>
-      <h2 class="section-title">Booking Requirements</h2>
+      <h2 class="section-title" data-en="Booking Requirements" data-es="Requisitos de Reserva">Booking Requirements</h2>
       <ul class="req-list" style="margin-top:1.5rem;">
         <li><span>⏰</span><div><strong>48-Hour Advance Notice:</strong> We require a 48-hour notice in advance along with the patient's documentation.</div></li>
         <li><span>🚨</span><div><strong>Urgent Requests:</strong> We can respond quickly. Call <a href="tel:5104797328">510-479-7328</a> directly.</div></li>
@@ -98,11 +98,19 @@
       const val=el.getAttribute('data-'+lang);
       if(val!==null) el.innerHTML=val;
     });
-    document.getElementById('btnEN').classList.toggle('active',lang==='en');
-    document.getElementById('btnES').classList.toggle('active',lang==='es');
+    document.querySelectorAll('a[data-en]').forEach(el=>{
+      const val=el.getAttribute('data-'+lang);
+      if(val!==null) el.textContent=val;
+    });
+    const btnEN=document.getElementById('btnEN');
+    const btnES=document.getElementById('btnES');
+    if(btnEN) btnEN.classList.toggle('active',lang==='en');
+    if(btnES) btnES.classList.toggle('active',lang==='es');
   }
-  const savedLang=localStorage.getItem('lang')||'en';
-  if(savedLang==='es') setLang('es');
+  document.addEventListener('DOMContentLoaded', function(){
+    const savedLang=localStorage.getItem('lang')||'en';
+    if(savedLang==='es') setLang('es');
+  });
 </script>
 </body>
 </html>
