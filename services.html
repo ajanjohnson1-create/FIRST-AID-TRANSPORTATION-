@@ -127,11 +127,19 @@
       const val=el.getAttribute('data-'+lang);
       if(val!==null) el.innerHTML=val;
     });
-    document.getElementById('btnEN').classList.toggle('active',lang==='en');
-    document.getElementById('btnES').classList.toggle('active',lang==='es');
+    document.querySelectorAll('a[data-en]').forEach(el=>{
+      const val=el.getAttribute('data-'+lang);
+      if(val!==null) el.textContent=val;
+    });
+    const btnEN=document.getElementById('btnEN');
+    const btnES=document.getElementById('btnES');
+    if(btnEN) btnEN.classList.toggle('active',lang==='en');
+    if(btnES) btnES.classList.toggle('active',lang==='es');
   }
-  const savedLang=localStorage.getItem('lang')||'en';
-  if(savedLang==='es') setLang('es');
+  document.addEventListener('DOMContentLoaded', function(){
+    const savedLang=localStorage.getItem('lang')||'en';
+    if(savedLang==='es') setLang('es');
+  });
 </script>
 </body>
 </html>
