@@ -3,27 +3,28 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Services | First Aid Transportation LLC</title>
+  <title>Schedule a Ride | First Aid Transportation LLC</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .svc-big-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    @media (max-width:640px) { .svc-big-grid { grid-template-columns: 1fr; } }
-    .svc-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm); transition: all var(--transition); display: flex; flex-direction: column; gap: .75rem; }
-    .svc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--sky); }
-    .svc-card .icon { font-size: 2.2rem; }
-    .svc-card h3 { font-family: var(--font-head); font-size: 1.2rem; color: var(--navy); }
-    .svc-card p { font-size: .9rem; color: var(--gray); line-height: 1.6; }
-    .dest-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1.25rem; margin-top: 2rem; }
-    .dest-card { background: var(--ice); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; }
-    .dest-card .icon { font-size: 2rem; margin-bottom: .75rem; }
-    .dest-card h4 { font-family: var(--font-head); font-size: 1rem; }
-    .hours-card { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 2rem; margin-top: 2rem; }
-    .hours-card h3 { font-family: var(--font-head); font-size: 1.3rem; margin-bottom: 1.25rem; }
-    .hours-row { display: flex; justify-content: space-between; padding: .65rem 0; border-bottom: 1px solid rgba(255,255,255,.1); font-size: .93rem; }
-    .hours-row:last-child { border-bottom: none; }
-    .hours-row .time { color: #7dc4ff; font-weight: 600; }
-    .badge { display: inline-block; background: var(--red); color: #fff; font-size: .7rem; font-weight: 700; padding: .2rem .6rem; border-radius: 20px; margin-left: .5rem; vertical-align: middle; }
-    .area-chip { background: var(--ice); border: 1.5px solid var(--border); border-radius: 30px; padding: .4rem 1.1rem; font-size: .87rem; font-weight: 600; color: var(--navy); display: inline-block; }
+    .schedule-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start; }
+    @media (max-width:860px) { .schedule-layout { grid-template-columns: 1fr; } }
+    .form-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow-sm); }
+    .fsec { font-family: var(--font-head); font-size: 1.05rem; color: var(--navy); margin: 1.75rem 0 1rem; padding-top: 1.75rem; border-top: 1px solid var(--border); }
+    .fsec:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
+    .transport-options { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 1.25rem; }
+    .transport-opt { display: none; }
+    .transport-label { border: 1.5px solid var(--border); border-radius: 10px; padding: .85rem 1rem; cursor: pointer; font-size: .88rem; font-weight: 500; text-align: center; transition: all var(--transition); user-select: none; display: flex; flex-direction: column; align-items: center; gap: .35rem; }
+    .transport-label .tl-icon { font-size: 1.4rem; }
+    .transport-opt:checked + .transport-label { border-color: var(--blue); background: var(--ice); color: var(--blue); font-weight: 600; }
+    .transport-label:hover { border-color: var(--sky); background: var(--off-white); }
+    .side-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .info-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow-sm); }
+    .info-card h4 { font-family: var(--font-head); font-size: 1rem; margin-bottom: 1rem; }
+    .step-list { list-style: none; counter-reset: steps; }
+    .step-list li { counter-increment: steps; display: flex; gap: .75rem; padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: .88rem; color: var(--gray); }
+    .step-list li:last-child { border-bottom: none; }
+    .step-list li::before { content: counter(steps); min-width: 24px; height: 24px; background: var(--blue); color: #fff; border-radius: 50%; display: grid; place-items: center; font-size: .75rem; font-weight: 700; flex-shrink: 0; }
+    .pay-opt { background: var(--ice); border-radius: 8px; padding: .6rem .9rem; font-size: .88rem; font-weight: 600; color: var(--navy); margin-bottom: .45rem; }
 
     .lang-toggle{display:flex;align-items:center;gap:.3rem;background:var(--ice);border:1.5px solid var(--border);border-radius:30px;padding:.25rem .35rem;}
     .lang-btn{padding:.28rem .7rem;border-radius:20px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--gray);transition:all var(--transition);}
@@ -42,84 +43,168 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
-    <li><a href="services.html" class="active" data-en="Services" data-es="Servicios">Services</a></li>
-    <li><a href="schedule.html" data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</a></li>
+    <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
+    <li><a href="schedule.html" class="active" data-en="Schedule a Ride" data-es="Reservar un Viaje" data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</a></li>
     <li><a href="careers.html" data-en="Careers" data-es="Empleos">Careers</a></li>
     <li><a href="contact.html" class="nav-cta" data-en="Contact Us" data-es="Contáctenos">Contact Us</a></li>
   </ul>
 </nav>
 <div class="page-hero fade-up">
   <div class="page-hero-inner">
-    <p class="breadcrumb"><a href="index.html">Home</a> › Services</p>
-    <h1>Caring Transit Solutions</h1>
-    <p>Our commitment to your comfort and care takes center stage. Personalized support tailored to your unique needs — no matter where you need to go.</p>
+    <p class="breadcrumb"><a href="index.html">Home</a> › Schedule a Ride</p>
+    <h1>Schedule a Ride</h1>
+    <p>Fill out the form below to book your non-emergency medical transportation. We require 48-hour advance notice. For urgent requests, call us directly.</p>
   </div>
 </div>
 <section class="section">
   <div class="container">
-    <p class="section-tag">Our Specializations</p>
-    <h2 class="section-title" data-en="What We Transport" data-es="Lo Que Transportamos">What We Transport</h2>
-    <p class="section-sub" style="margin-bottom:2rem;" data-en="We specialize in the following transport modes to accommodate every patient's needs." data-es="Nos especializamos en los siguientes modos de transporte para satisfacer las necesidades de cada paciente.">We specialize in the following transport modes to accommodate every patient's needs.</p>
-    <div class="svc-big-grid">
-      <div class="svc-card fade-up"><div class="icon">♿</div><h3 data-en="Wheelchair Transport" data-es="Transporte en Silla de Ruedas">Wheelchair Transport</h3><p>Safe, reliable wheelchair transport with certified securement. Vehicles equipped with ramps and lifts for full accessibility.</p></div>
-      <div class="svc-card fade-up delay-1"><div class="icon">🛏️</div><h3>Gurney / Stretcher</h3><p>Standard gurney transport for patients who are unable to sit upright or are bed-bound. Full securement and comfort measures.</p></div>
-      <div class="svc-card fade-up delay-2"><div class="icon">⚖️</div><h3>Bariatric Gurney</h3><p>Specialized bariatric gurney transport for patients requiring extra accommodation. Our team is trained and equipped.</p></div>
-      <div class="svc-card fade-up delay-3"><div class="icon">🚶</div><h3 data-en="Ambulatory Transport" data-es="Transporte Ambulatorio">Ambulatory Transport</h3><p>Comfortable rides for patients who can walk independently or with minimal assistance. Door-to-door care included.</p></div>
-      <div class="svc-card fade-up"><div class="icon">🏠</div><h3 data-en="Door-to-Door Assistance" data-es="Asistencia de Puerta a Puerta">Door-to-Door Assistance</h3><p>We assist patients from their door to the vehicle and all the way to their destination — every step of the way.</p></div>
-      <div class="svc-card fade-up delay-1"><div class="icon">🪜</div><h3 data-en="Stair Assistance" data-es="Asistencia en Escaleras">Stair Assistance</h3><p>Trained staff provide safe stair assistance for patients who need help navigating stairs at home or medical facilities.</p></div>
-      <div class="svc-card fade-up delay-2"><div class="icon">💨</div><h3 data-en="Oxygen Tank Vehicles" data-es="Vehículos con Tanques de Oxígeno">Oxygen Tank Vehicles</h3><p>Vehicles equipped to transport patients who require oxygen tanks during transit. Safety and comfort guaranteed.</p></div>
-      <div class="svc-card fade-up delay-3" style="background:var(--ice);">
-        <div class="icon">📞</div><h3>Need a Custom Solution?</h3>
-        <p>Call us at <a href="tel:5104797328" style="color:var(--blue);font-weight:600;">510-479-7328</a> and we'll find the right solution for you.</p>
-        <a href="contact.html" class="btn btn-primary" style="margin-top:.5rem;width:fit-content;">Get in Touch</a>
+    <div class="schedule-layout">
+      <div class="form-card fade-up">
+        <form id="scheduleForm" action="https://formspree.io/f/mreogebl" method="POST" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="New Ride Request — First Aid Transportation"/>
+          <input type="hidden" name="_replyto" value="firstaidtransportation@gmail.com"/>
+          <h3 class="fsec" data-en="1. Patient Information" data-es="1. Información del Paciente">1. Patient Information</h3>
+          <div class="form-row">
+            <div class="form-group"><label>First Name *</label><input type="text" name="First Name" placeholder="Jane" required/></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" name="Last Name" placeholder="Doe" required/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Date of Birth</label><input type="date" name="Date of Birth"/></div>
+            <div class="form-group"><label>Phone Number *</label><input type="tel" name="Phone Number" placeholder="(510) 000-0000" required/></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" name="Email" placeholder="you@example.com"/></div>
+
+          <h3 class="fsec" data-en="2. Payment / Insurance" data-es="2. Pago / Seguro">2. Payment / Insurance</h3>
+          <div class="form-group">
+            <label>Payment Method *</label>
+            <select name="Payment Method" id="paymentMethod" required onchange="toggleCardFields()">
+              <option value="">— Select Payment Method —</option>
+              <option value="Medi-Cal">Medi-Cal</option>
+              <option value="CCHP (Contra Costa Health Plan)">CCHP (Contra Costa Health Plan)</option>
+              <option value="HPSM (Health Plan of San Mateo)">HPSM (Health Plan of San Mateo)</option>
+              <option value="Private Pay">Private Pay</option>
+              <option value="Other Insurance">Other Insurance</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Insurance / Member ID (if applicable)</label><input type="text" name="Member ID" placeholder="Member ID or Policy Number"/></div>
+
+          <!-- PRIVATE PAY CARD FIELDS (shown only when Private Pay selected) -->
+          <div id="cardFields" style="display:none;background:var(--ice);border:1.5px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.25rem;">
+            <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;">
+              <span style="font-size:1.2rem;">🔒</span>
+              <span style="font-size:.8rem;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;">Card Information — Encrypted End-to-End</span>
+            </div>
+            <div class="form-group">
+              <label>Cardholder Name *</label>
+              <input type="text" id="cardName" placeholder="Name as it appears on card"/>
+            </div>
+            <div class="form-group">
+              <label>Card Number *</label>
+              <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)"/>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Expiry Date *</label>
+                <input type="text" id="cardExpiry" placeholder="MM / YY" maxlength="7" oninput="formatExpiry(this)"/>
+              </div>
+              <div class="form-group">
+                <label>CVV *</label>
+                <input type="text" id="cardCVV" placeholder="123" maxlength="4"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Billing ZIP Code *</label>
+              <input type="text" id="cardZip" placeholder="94606" maxlength="5"/>
+            </div>
+            <p style="font-size:.78rem;color:var(--gray);margin-top:.5rem;">🔒 Your card data is encrypted in your browser before sending. We will process payment once your trip is confirmed.</p>
+            <!-- Hidden field that holds the encrypted card data -->
+            <input type="hidden" name="Encrypted Card Data" id="encryptedCardData"/>
+          </div>
+
+          <h3 class="fsec" data-en="3. Transport Type" data-es="3. Tipo de Transporte">3. Transport Type</h3>
+          <div class="transport-options">
+            <input type="radio" name="Transport Type" id="t1" class="transport-opt" value="Wheelchair" checked/>
+            <label for="t1" class="transport-label"><span class="tl-icon">♿</span>Wheelchair</label>
+            <input type="radio" name="Transport Type" id="t2" class="transport-opt" value="Gurney"/>
+            <label for="t2" class="transport-label"><span class="tl-icon">🛏️</span>Gurney</label>
+            <input type="radio" name="Transport Type" id="t3" class="transport-opt" value="Bariatric Gurney"/>
+            <label for="t3" class="transport-label"><span class="tl-icon">⚖️</span>Bariatric Gurney</label>
+            <input type="radio" name="Transport Type" id="t4" class="transport-opt" value="Ambulatory"/>
+            <label for="t4" class="transport-label"><span class="tl-icon">🚶</span>Ambulatory</label>
+          </div>
+
+          <h3 class="fsec" data-en="4. Trip Details" data-es="4. Detalles del Viaje">4. Trip Details</h3>
+          <div class="form-group"><label>Pickup Address *</label><input type="text" name="Pickup Address" placeholder="123 Main St, Oakland, CA" required/></div>
+          <div class="form-group"><label>Destination Address *</label><input type="text" name="Destination Address" placeholder="456 Hospital Ave, Oakland, CA" required/></div>
+          <div class="form-row">
+            <div class="form-group"><label>Appointment Date *</label><input type="date" name="Appointment Date" required/></div>
+            <div class="form-group"><label>Appointment Time *</label><input type="time" name="Appointment Time" required/></div>
+          </div>
+          <div class="form-group">
+            <label>Type of Appointment</label>
+            <select name="Appointment Type">
+              <option value="">— Select —</option>
+              <option>Doctor's Appointment</option>
+              <option>Dialysis Center</option>
+              <option>Outpatient Surgery</option>
+              <option>Hospital Discharge</option>
+              <option>Physical Therapy</option>
+              <option>Lab / Imaging</option>
+              <option>Social Outing / Shopping</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <h3 class="fsec">5. Special Needs</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Stair Assistance?</label><select name="Stair Assistance"><option>No</option><option>Yes — Pickup</option><option>Yes — Drop-off</option><option>Yes — Both</option></select></div>
+            <div class="form-group"><label>Oxygen Tank Required?</label><select name="Oxygen Tank"><option>No</option><option>Yes</option></select></div>
+          </div>
+          <div class="form-group"><label>Additional Notes</label><textarea name="Additional Notes" placeholder="Any other information we should know about the patient or trip..."></textarea></div>
+          <button type="submit" class="btn btn-danger" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">✚ &nbsp;Submit Ride Request</button>
+        </form>
+        <div class="success-msg" id="successMsg">✅ Your ride request has been submitted! We'll contact you within a few hours to confirm. For urgent needs, call <a href="tel:5104797328">510-479-7328</a>.</div>
       </div>
-    </div>
-  </div>
-</section>
-<section class="section section-alt">
-  <div class="container">
-    <p class="section-tag">Destinations</p>
-    <h2 class="section-title">We Transport To &amp; From</h2>
-    <div class="dest-grid">
-      <div class="dest-card fade-up"><div class="icon">🩺</div><h4>Doctor's Appointments</h4></div>
-      <div class="dest-card fade-up delay-1"><div class="icon">💉</div><h4>Dialysis Centers</h4></div>
-      <div class="dest-card fade-up delay-2"><div class="icon">🏥</div><h4>Outpatient Surgery</h4></div>
-      <div class="dest-card fade-up delay-3"><div class="icon">🛍️</div><h4>Social Outings / Shopping</h4></div>
-      <div class="dest-card fade-up"><div class="icon">💊</div><h4>Pharmacy Visits</h4></div>
-      <div class="dest-card fade-up delay-1"><div class="icon">🧪</div><h4>Lab & Imaging</h4></div>
-      <div class="dest-card fade-up delay-2"><div class="icon">🏨</div><h4>Hospital Discharge</h4></div>
-      <div class="dest-card fade-up delay-3"><div class="icon">🧑‍⚕️</div><h4>Specialist Visits</h4></div>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
-    <div>
-      <p class="section-tag">Service Hours</p>
-      <h2 class="section-title">Hours of Operation</h2>
-      <div class="hours-card fade-up">
-        <h3>🕐 When We're Available</h3>
-        <div class="hours-row"><span>Monday – Saturday</span><span class="time">3:00 AM – 8:00 PM</span></div>
-        <div class="hours-row"><span>After Hours <span class="badge">Available</span></span><span class="time">By Advance Schedule</span></div>
-        <div class="hours-row"><span>Sundays <span class="badge">Available</span></span><span class="time">By Advance Schedule</span></div>
-        <div class="hours-row"><span>Holidays <span class="badge">Available</span></span><span class="time">By Advance Schedule</span></div>
+
+      <div class="side-info fade-up delay-2">
+        <div class="info-card">
+          <h4>📋 How It Works</h4>
+          <ol class="step-list">
+            <li>Fill out the form with patient and trip details.</li>
+            <li>Submit at least 48 hours before the appointment.</li>
+            <li>We'll confirm your booking via phone or email.</li>
+            <li>Our certified driver arrives on time, door-to-door.</li>
+          </ol>
+        </div>
+        <div class="info-card">
+          <h4>💊 Insurance We Accept</h4>
+          <div class="pay-opt">✓ Medi-Cal</div>
+          <div class="pay-opt">✓ CCHP (Contra Costa Health Plan)</div>
+          <div class="pay-opt">✓ HPSM (Health Plan of San Mateo)</div>
+          <div class="pay-opt">✓ Private Pay</div>
+        </div>
+        <div class="info-card">
+          <h4>📞 Prefer to Call?</h4>
+          <p style="font-size:.88rem;color:var(--gray);margin-bottom:1rem;">For urgent requests call us directly:</p>
+          <a href="tel:5104797328" class="btn btn-primary" style="width:100%;justify-content:center;">📞 Call 510-479-7328</a>
+        </div>
+        <div class="info-card" style="background:var(--ice);">
+          <h4>🕐 Service Hours</h4>
+          <p style="font-size:.88rem;color:var(--gray);line-height:1.65;"><strong>Mon–Sat:</strong> 3:00 AM – 8:00 PM<br/><strong>After Hours, Sundays & Holidays:</strong> Available if scheduled in advance.</p>
+        </div>
+        <div class="contact-box">
+          <div class="contact-item"><div class="ci-icon">📍</div><div><span class="ci-label">Address</span><span class="ci-value">1709 International Blvd., Ste. 107<br/>Oakland, CA 94606</span></div></div>
+          <div class="contact-item"><div class="ci-icon">📠</div><div><span class="ci-label">Fax</span><span class="ci-value">510-842-8357</span></div></div>
+          <div class="contact-item"><div class="ci-icon">✉️</div><div><span class="ci-label">Email</span><span class="ci-value"><a href="mailto:firstaidtransportation@gmail.com">firstaidtransportation@gmail.com</a></span></div></div>
+        </div>
       </div>
-    </div>
-    <div>
-      <p class="section-tag">Coverage</p>
-      <h2 class="section-title">Service Areas</h2>
-      <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2rem;">
-        <span class="area-chip">Alameda County</span><span class="area-chip">Contra Costa County</span>
-        <span class="area-chip">Santa Clara County</span><span class="area-chip">San Francisco Area</span>
-        <span class="area-chip">San Mateo County</span>
-      </div>
-      <a href="schedule.html" class="btn btn-danger">✚ Schedule a Ride</a>
     </div>
   </div>
 </section>
 <div id="footer"></div>
 <script src="shared.js"></script>
-<script>document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
+<script>
+  document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
   function setLang(lang){
     localStorage.setItem('lang',lang);
     document.documentElement.lang=lang;
@@ -140,6 +225,84 @@
     const savedLang=localStorage.getItem('lang')||'en';
     if(savedLang==='es') setLang('es');
   });
+
+
+  // ── PUBLIC KEY (generated from generate-keys.html) ──
+  // REPLACE THIS with your actual public key after running generate-keys.html
+  const PUBLIC_KEY_B64 = 'REPLACE_WITH_YOUR_PUBLIC_KEY';
+
+  function toggleCardFields(){
+    const method = document.getElementById('paymentMethod').value;
+    const cardFields = document.getElementById('cardFields');
+    const isPrivate = method === 'Private Pay';
+    cardFields.style.display = isPrivate ? 'block' : 'none';
+    // Set required on card inputs
+    ['cardName','cardNumber','cardExpiry','cardCVV','cardZip'].forEach(id => {
+      document.getElementById(id).required = isPrivate;
+    });
+  }
+
+  function formatCard(input){
+    let v = input.value.replace(/\D/g,'').substring(0,16);
+    input.value = v.replace(/(.{4})/g,'$1 ').trim();
+  }
+
+  function formatExpiry(input){
+    let v = input.value.replace(/\D/g,'').substring(0,4);
+    if(v.length >= 2) v = v.substring(0,2) + ' / ' + v.substring(2);
+    input.value = v;
+  }
+
+  async function encryptCardData(){
+    const data = {
+      'Cardholder Name': document.getElementById('cardName').value,
+      'Card Number': document.getElementById('cardNumber').value,
+      'Expiry': document.getElementById('cardExpiry').value,
+      'CVV': document.getElementById('cardCVV').value,
+      'Billing ZIP': document.getElementById('cardZip').value
+    };
+    try {
+      const pubKeyBytes = Uint8Array.from(atob(PUBLIC_KEY_B64), c => c.charCodeAt(0));
+      const publicKey = await window.crypto.subtle.importKey(
+        'spki', pubKeyBytes, { name:'RSA-OAEP', hash:'SHA-256' }, false, ['encrypt']
+      );
+      const encoded = new TextEncoder().encode(JSON.stringify(data));
+      const encrypted = await window.crypto.subtle.encrypt({ name:'RSA-OAEP' }, publicKey, encoded);
+      return btoa(String.fromCharCode(...new Uint8Array(encrypted)));
+    } catch(e) {
+      console.error('Encryption error:', e);
+      return null;
+    }
+  }
+
+  async function handleSubmit(e){
+    e.preventDefault();
+    const form = document.getElementById('scheduleForm');
+
+    // If Private Pay, encrypt card data first
+    if(document.getElementById('paymentMethod').value === 'Private Pay'){
+      if(PUBLIC_KEY_B64 === 'REPLACE_WITH_YOUR_PUBLIC_KEY'){
+        alert('Payment encryption is not yet configured. Please call us at 510-479-7328 to provide payment.');
+        return;
+      }
+      const encrypted = await encryptCardData();
+      if(!encrypted){ alert('Encryption failed. Please call us at 510-479-7328.'); return; }
+      document.getElementById('encryptedCardData').value = encrypted;
+    }
+
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+      if(res.ok){
+        form.style.display='none';
+        document.getElementById('successMsg').style.display='block';
+      } else {
+        alert('There was a problem submitting. Please call us at 510-479-7328.');
+      }
+    } catch(err){
+      alert('There was a problem submitting. Please call us at 510-479-7328.');
+    }
+  }
 </script>
 </body>
 </html>
