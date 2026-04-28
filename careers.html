@@ -163,11 +163,15 @@
       const val=el.getAttribute('data-'+lang);
       if(val!==null) el.innerHTML=val;
     });
-    document.getElementById('btnEN').classList.toggle('active',lang==='en');
-    document.getElementById('btnES').classList.toggle('active',lang==='es');
+    const btnEN=document.getElementById('btnEN');
+    const btnES=document.getElementById('btnES');
+    if(btnEN) btnEN.classList.toggle('active',lang==='en');
+    if(btnES) btnES.classList.toggle('active',lang==='es');
   }
-  const savedLang=localStorage.getItem('lang')||'en';
-  if(savedLang==='es') setLang('es');
+  window.addEventListener('load', function(){
+    const savedLang=localStorage.getItem('lang')||'en';
+    if(savedLang==='es') setLang('es');
+  });
 
   function handleFile(input){const file=input.files[0];if(file){document.getElementById('uploadArea').classList.add('has-file');const fn=document.getElementById('fileName');fn.style.display='block';fn.textContent='✅ '+file.name;}}
   async function handleSubmit(e){
