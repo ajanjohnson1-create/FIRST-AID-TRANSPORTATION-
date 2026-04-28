@@ -3,159 +3,253 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Careers | First Aid Transportation LLC</title>
+  <title>First Aid Transportation LLC | Bay Area NEMT Provider</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .careers-layout { display: grid; grid-template-columns: 1fr 380px; gap: 2.5rem; align-items: start; }
-    @media (max-width:860px) { .careers-layout { grid-template-columns: 1fr; } }
-    .job-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm); margin-bottom: 1.25rem; transition: all var(--transition); }
-    .job-card:hover { box-shadow: var(--shadow-md); border-color: var(--sky); }
-    .job-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .job-title { font-family: var(--font-head); font-size: 1.2rem; }
-    .job-badge { background: var(--ice); color: var(--blue); font-size: .78rem; font-weight: 700; padding: .3rem .8rem; border-radius: 20px; }
-    .job-card p { font-size: .92rem; color: var(--gray); line-height: 1.65; }
-    .req-section { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; margin-top: 1.5rem; }
-    .req-section h3 { font-family: var(--font-head); font-size: 1.1rem; margin-bottom: 1.25rem; }
-    .req-group { margin-bottom: 1.25rem; }
-    .req-group:last-child { margin-bottom: 0; }
-    .req-group h4 { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: .6rem; }
-    .req-list { list-style: none; }
-    .req-list li { font-size: .9rem; color: var(--gray); padding: .4rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: .6rem; line-height: 1.5; }
-    .req-list li:last-child { border-bottom: none; }
-    .req-list li::before { content: '✔'; color: var(--blue); font-size: .8rem; flex-shrink: 0; margin-top: .15rem; }
-    .apply-form { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow-sm); position: sticky; top: 90px; }
-    .file-upload-area { border: 2px dashed var(--border); border-radius: 10px; padding: 1.5rem; text-align: center; cursor: pointer; transition: all var(--transition); background: var(--off-white); }
-    .file-upload-area:hover { border-color: var(--sky); background: var(--ice); }
-    .file-upload-area.has-file { border-color: #4caf50; background: #f1f8f1; }
-    .file-upload-area .u-icon { font-size: 2rem; margin-bottom: .5rem; }
-    .file-upload-area p { font-size: .88rem; color: var(--gray); margin: 0; }
-    .file-upload-area strong { color: var(--blue); }
-    #resumeInput { display: none; }
-    #fileName { font-size: .82rem; color: #4caf50; font-weight: 600; margin-top: .5rem; display: none; }
-
+    nav { height: 170px !important; }
+    .nav-logo img { width: 150px !important; height: 150px !important; }
     .lang-toggle{display:flex;align-items:center;gap:.3rem;background:var(--ice);border:1.5px solid var(--border);border-radius:30px;padding:.25rem .35rem;}
     .lang-btn{padding:.28rem .7rem;border-radius:20px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--gray);transition:all var(--transition);}
     .lang-btn.active{background:var(--navy);color:#fff;}
+
+    .home-hero { width:100%; line-height:0; }
+    .home-hero img { width:100%; max-height:520px; object-fit:cover; display:block; }
+
+    .stats-bar { background:linear-gradient(135deg,#061a35 0%,#0d3060 60%,#0d4a8f 100%); border-bottom:3px solid var(--sky); }
+    .stats-inner { max-width:1100px; margin:0 auto; padding:2.5rem 2.5rem 0; }
+    .hero-tag { display:inline-block; background:rgba(255,255,255,.13); color:#fff; font-size:.75rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.35rem 1rem; border-radius:20px; margin-bottom:1rem; }
+    .hero-headline { font-family:var(--font-head); font-size:clamp(2rem,4vw,3rem); color:#fff; line-height:1.1; margin-bottom:1rem; }
+    .hero-headline em { font-style:normal; color:#7dc4ff; }
+    .hero-p { color:rgba(255,255,255,.82); font-size:1rem; line-height:1.7; margin-bottom:1.5rem; max-width:640px; }
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2rem; }
+    .stats-row { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid rgba(255,255,255,.15); margin-top:.5rem; }
+    @media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+    .stat-item { padding:1.25rem 1rem; text-align:center; border-right:1px solid rgba(255,255,255,.1); }
+    .stat-item:last-child{border-right:none;}
+    .stat-num { font-family:var(--font-logo); font-size:2rem; color:#fff; line-height:1; }
+    .stat-lbl { font-size:.78rem; color:rgba(255,255,255,.6); margin-top:.3rem; }
+
+    .trust-strip { background:#0d4a8f; padding:1rem 2.5rem; display:flex; justify-content:center; align-items:center; gap:2rem; flex-wrap:wrap; }
+    .trust-item { display:flex; align-items:center; gap:.55rem; color:rgba(255,255,255,.9); font-size:.86rem; font-weight:500; }
+
+    .svc-card { text-align:center; padding:1.75rem; }
+    .svc-icon { font-size:2.5rem; margin-bottom:1rem; }
+    .svc-card h3 { font-family:var(--font-head); font-size:1.1rem; margin-bottom:.5rem; }
+    .svc-card p { font-size:.88rem; color:var(--gray); line-height:1.55; }
+
+    .area-chip { background:var(--white); border:1.5px solid var(--border); border-radius:30px; padding:.4rem 1.1rem; font-size:.87rem; font-weight:600; color:var(--navy); transition:all var(--transition); display:inline-block; }
+    .area-chip:hover { background:var(--ice); border-color:var(--sky); color:var(--blue); }
+
+    .cta-banner { background:linear-gradient(120deg,#0d4a8f 0%,#061a35 100%); padding:3.5rem 2.5rem; text-align:center; color:#fff; }
+    .cta-banner h2 { font-family:var(--font-head); font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:.75rem; }
+    .cta-banner p { color:rgba(255,255,255,.78); margin-bottom:2rem; }
+    .cta-btns { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .btn-white{background:#fff!important;color:#061a35!important;}
+    .btn-white:hover{background:var(--ice)!important;}
+    .btn-out-w{background:transparent!important;color:#fff!important;border:2px solid rgba(255,255,255,.5)!important;}
+    .btn-out-w:hover{background:rgba(255,255,255,.1)!important;border-color:#fff!important;}
   </style>
 </head>
 <body>
 <div id="topbar"></div>
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="First Aid Transportation Logo"/>
+    <img src="logo.png" alt="First Aid Transportation Logo" style="width:150px;height:150px;object-fit:contain;"/>
     <div class="logo-text"><small data-en="Non-Emergency Medical Transportation" data-es="Transporte Médico No de Emergencia">Non-Emergency Medical Transportation</small></div>
   </a>
-  <div style="display:flex;align-items:center;margin-left:auto;margin-right:.75rem;"><div class="lang-toggle"><button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button><button class="lang-btn" id="btnES" onclick="setLang('es')">ES</button></div></div>
+  <div style="display:flex;align-items:center;margin-left:auto;margin-right:.75rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btnES" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
   <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html" class="active" data-en="Home" data-es="Inicio">Home</a></li>
     <li><a href="about.html" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
     <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
     <li><a href="schedule.html" data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</a></li>
-    <li><a href="careers.html" class="active" data-en="Careers" data-es="Empleos">Careers</a></li>
+    <li><a href="careers.html" data-en="Careers" data-es="Empleos">Careers</a></li>
     <li><a href="contact.html" class="nav-cta" data-en="Contact Us" data-es="Contáctenos">Contact Us</a></li>
   </ul>
 </nav>
-<div class="page-hero fade-up">
-  <div class="page-hero-inner">
-    <p class="breadcrumb"><a href="index.html">Home</a> › Careers</p>
-    <h1>Join Our Team</h1>
-    <p>Be part of a compassionate team making a real difference in patients' lives every day. We're looking for dedicated drivers in the Oakland Bay Area.</p>
+
+<section class="home-hero">
+  <img src="banner1.jpg" alt="First Aid Transportation van"/>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner fade-up">
+    <span class="hero-tag" data-en="Bay Area NEMT Provider" data-es="Proveedor NEMT del Área de la Bahía">Bay Area NEMT Provider</span>
+    <h1 class="hero-headline"><span data-en="Reliable Medical Transportation You Can" data-es="Transporte Médico Confiable en el que Puede">Reliable Medical Transportation You Can</span> <em data-en="Count On" data-es="Confiar">Count On</em></h1>
+    <p class="hero-p" data-en="First Aid Transportation LLC provides safe, compassionate non-emergency medical transportation for patients throughout the Bay Area. Wheelchair, gurney, ambulatory — we handle it all." data-es="First Aid Transportation LLC ofrece transporte médico no de emergencia seguro y compasivo para pacientes en toda el Área de la Bahía. Silla de ruedas, camilla, ambulatorio — lo manejamos todo.">First Aid Transportation LLC provides safe, compassionate non-emergency medical transportation for patients throughout the Bay Area. Wheelchair, gurney, ambulatory — we handle it all.</p>
+    <div class="hero-btns">
+      <a href="schedule.html" class="btn btn-danger" data-en="✚ Schedule a Ride" data-es="✚ Reservar un Viaje">✚ Schedule a Ride</a>
+      <a href="tel:5104797328" class="btn" style="background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.4);">📞 510-479-7328</a>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">7+</div><div class="stat-lbl" data-en="Years Serving the Bay Area" data-es="Años Sirviendo el Área de la Bahía">Years Serving the Bay Area</div></div>
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl" data-en="Counties Covered" data-es="Condados Cubiertos">Counties Covered</div></div>
+      <div class="stat-item"><div class="stat-num">48h</div><div class="stat-lbl" data-en="Advance Booking · Urgent Available" data-es="Reserva Anticipada · Urgente Disponible">Advance Booking · Urgent Available</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl" data-en="Certified Drivers" data-es="Conductores Certificados">Certified Drivers</div></div>
+    </div>
   </div>
 </div>
+
+<div class="trust-strip">
+  <div class="trust-item" data-en="🛡️ CPR & First Aid Certified" data-es="🛡️ Certificados en RCP y Primeros Auxilios">🛡️ CPR & First Aid Certified</div>
+  <div class="trust-item" data-en="♿ Wheelchair & Gurney Equipped" data-es="♿ Equipados con Silla de Ruedas y Camilla">♿ Wheelchair & Gurney Equipped</div>
+  <div class="trust-item">💊 Medi-Cal · CCHP · HPSM · Private Pay</div>
+  <div class="trust-item" data-en="🕐 Mon–Sat 3AM–8PM + After Hours" data-es="🕐 Lun–Sáb 3AM–8PM + Fuera de Horario">🕐 Mon–Sat 3AM–8PM + After Hours</div>
+  <div class="trust-item" data-en="📍 Oakland, CA Based" data-es="📍 Con sede en Oakland, CA">📍 Oakland, CA Based</div>
+</div>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-tag" data-en="What We Offer" data-es="Lo Que Ofrecemos">What We Offer</p>
+    <h2 class="section-title" data-en="Our NEMT Services" data-es="Nuestros Servicios NEMT">Our NEMT Services</h2>
+    <p class="section-sub" style="margin-bottom:2.5rem;" data-en="Personalized transportation solutions tailored to each patient's unique needs." data-es="Soluciones de transporte personalizadas adaptadas a las necesidades únicas de cada paciente.">Personalized transportation solutions tailored to each patient's unique needs.</p>
+    <div class="grid-4">
+      <div class="card svc-card fade-up"><div class="svc-icon">♿</div><h3 data-en="Wheelchair" data-es="Silla de Ruedas">Wheelchair</h3><p data-en="Safe, accessible transport with certified wheelchair securement for every ride." data-es="Transporte seguro y accesible con sujeción certificada de silla de ruedas en cada viaje.">Safe, accessible transport with certified wheelchair securement for every ride.</p></div>
+      <div class="card svc-card fade-up delay-1"><div class="svc-icon">🛏️</div><h3 data-en="Gurney / Stretcher" data-es="Camilla">Gurney / Stretcher</h3><p data-en="Standard and bariatric gurney transport for patients who cannot sit upright." data-es="Transporte en camilla estándar y bariátrica para pacientes que no pueden sentarse.">Standard and bariatric gurney transport for patients who cannot sit upright.</p></div>
+      <div class="card svc-card fade-up delay-2"><div class="svc-icon">🚶</div><h3 data-en="Ambulatory" data-es="Ambulatorio">Ambulatory</h3><p data-en="Comfortable rides for patients who can walk with minimal assistance." data-es="Viajes cómodos para pacientes que pueden caminar con mínima asistencia.">Comfortable rides for patients who can walk with minimal assistance.</p></div>
+      <div class="card svc-card fade-up delay-3"><div class="svc-icon">🏠</div><h3 data-en="Door-to-Door" data-es="Puerta a Puerta">Door-to-Door</h3><p data-en="Full door-to-door assistance with stair help and oxygen tank vehicles available." data-es="Asistencia completa de puerta a puerta con ayuda en escaleras y vehículos con tanques de oxígeno.">Full door-to-door assistance with stair help and oxygen tank vehicles available.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;"><a href="services.html" class="btn btn-outline" data-en="View All Services →" data-es="Ver Todos los Servicios →">View All Services →</a></div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
-    <div class="careers-layout">
-      <div>
-        <p class="section-tag">Open Positions</p>
-        <h2 class="section-title">Current Openings</h2>
-        <p class="section-sub" style="margin-bottom:2rem;">We're always looking for caring, certified professionals to grow with us.</p>
-        <div class="job-card fade-up">
-          <div class="job-header"><h3 class="job-title">NEMT Driver — Wheelchair & Ambulatory</h3><span class="job-badge">Full-Time</span></div>
-          <p>Transport patients safely to and from medical appointments throughout the Bay Area. Provide compassionate, door-to-door assistance.</p>
-        </div>
-        <div class="job-card fade-up delay-1">
-          <div class="job-header"><h3 class="job-title">Gurney Transport Specialist</h3><span class="job-badge">Full-Time</span></div>
-          <p>Specialize in gurney and bariatric transport for patients who cannot sit upright. Requires training in stretcher securement and patient care.</p>
-        </div>
-        <div class="req-section fade-up delay-2">
-          <h3>📋 Driver Requirements</h3>
-          <p style="font-size:.9rem;color:var(--gray);margin-bottom:1.25rem;line-height:1.6;">All applicants must meet the following requirements to be considered for a driving position:</p>
-          <div class="req-group">
-            <h4>Background & Licensing</h4>
-            <ul class="req-list">
-              <li>Clean background — County & Nation 7-Year Search</li>
-              <li>Valid California Driver's License</li>
-              <li>Clean Motor Vehicle Record (MVR)</li>
-            </ul>
-          </div>
-          <div class="req-group">
-            <h4>Driving Record — Last 3 Years</h4>
-            <ul class="req-list">
-              <li>No more than 1 moving violation / ticket</li>
-              <li>No more than 1 at-fault accident</li>
-              <li>No license suspensions in the last 3 years</li>
-            </ul>
-          </div>
-          <div class="req-group">
-            <h4>Health & Physical</h4>
-            <ul class="req-list">
-              <li>Clean Drug Test — 10 Panel required</li>
-              <li>Must be able to pass a DOT Physical examination</li>
-            </ul>
-          </div>
+    <div class="fade-up" style="max-width:680px;">
+      <p class="section-tag" data-en="About Us" data-es="Sobre Nosotros">About Us</p>
+      <h2 style="font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:1rem;" data-en="Uniting Care &amp; Comfort for Every Journey" data-es="Uniendo Cuidado y Comodidad en Cada Viaje">Uniting Care &amp; Comfort for Every Journey</h2>
+      <p style="color:var(--gray);line-height:1.7;margin-bottom:1rem;font-size:.97rem;" data-en="Serving the Bay Area for over seven years with safe, efficient, and compassionate NEMT services. We require 48-hour advance notice — urgent requests available." data-es="Sirviendo al Área de la Bahía por más de siete años con servicios NEMT seguros, eficientes y compasivos. Requerimos aviso de 48 horas — solicitudes urgentes disponibles.">Serving the Bay Area for over seven years with safe, efficient, and compassionate NEMT services. We require 48-hour advance notice — urgent requests available.</p>
+      <div style="margin-top:1.5rem;"><a href="about.html" class="btn btn-primary" data-en="Learn More About Us" data-es="Conócenos Más">Learn More About Us</a></div>
+    </div>
+  </div>
+</section>
 
-        </div>
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-tag" data-en="Coverage" data-es="Cobertura">Coverage</p>
+    <h2 class="section-title" data-en="Service Areas" data-es="Áreas de Servicio">Service Areas</h2>
+    <p class="section-sub" data-en="Serving patients across five Bay Area counties." data-es="Atendiendo pacientes en cinco condados del Área de la Bahía.">Serving patients across five Bay Area counties.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem;">
+      <span class="area-chip">Alameda County</span><span class="area-chip">Contra Costa County</span>
+      <span class="area-chip">Santa Clara County</span><span class="area-chip">San Francisco Area</span>
+      <span class="area-chip">San Mateo County</span><span class="area-chip">Oakland</span>
+      <span class="area-chip">Berkeley</span><span class="area-chip">Fremont</span>
+      <span class="area-chip">Hayward</span><span class="area-chip">San Leandro</span>
+      <span class="area-chip">Richmond</span><span class="area-chip">Emeryville</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+        <img src="banner1.jpg" alt="First Aid Transportation van at airport"/>
+        <img src="van1.jpg" alt="First Aid Transportation van"/>
+        <img src="van2.jpg" alt="First Aid Transportation van at facility"/>
+        <img src="van3.jpg" alt="Wheelchair lift equipped van"/>
+        <img src="van4.jpg" alt="First Aid Transportation van rear"/>
+        <img src="banner1.jpg" alt="First Aid Transportation van at airport"/>
       </div>
+      <button class="carousel-btn prev" id="prevBtn">&#8249;</button>
+      <button class="carousel-btn next" id="nextBtn">&#8250;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</section>
 
-      <div class="apply-form fade-up delay-2">
-        <p class="section-tag">Apply Now</p>
-        <h3 style="font-family:var(--font-head);font-size:1.3rem;margin-bottom:.5rem;">Submit Your Application</h3>
-        <p style="font-size:.88rem;color:var(--gray);margin-bottom:1.75rem;line-height:1.55;">Fill out the form and attach your resume. We'll be in touch!</p>
-        <form id="careerForm" action="https://formspree.io/f/xlgoegdk" method="POST" onsubmit="handleSubmit(event)">
-          <input type="hidden" name="_subject" value="New Job Application — First Aid Transportation"/>
-          <input type="hidden" name="_replyto" value="firstaidtransportation@gmail.com"/>
-          <div class="form-row">
-            <div class="form-group"><label>First Name *</label><input type="text" name="First Name" required placeholder="Jane"/></div>
-            <div class="form-group"><label>Last Name *</label><input type="text" name="Last Name" required placeholder="Doe"/></div>
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-tag" data-en="What People Are Saying" data-es="Lo Que Dicen Nuestros Pacientes">What People Are Saying</p>
+    <h2 class="section-title" data-en="Patient Reviews" data-es="Opiniones de Pacientes">Patient Reviews</h2>
+    <p class="section-sub" style="margin-bottom:2rem;" data-en="See what our patients and their families say about First Aid Transportation LLC." data-es="Vea lo que nuestros pacientes y sus familias dicen sobre First Aid Transportation LLC.">See what our patients and their families say about First Aid Transportation LLC.</p>
+    <div class="grid-3">
+      <div class="card" style="padding:1.75rem;">
+        <div style="display:flex;gap:.25rem;margin-bottom:.75rem;"><span style="color:#f5a623;font-size:1.1rem;">★★★★★</span></div>
+        <p style="font-size:.93rem;color:var(--gray);line-height:1.7;margin-bottom:1rem;" data-en='"My driver Hamid is an excellent safe driver and I really appreciate their services. I definitely recommend using First Aid Transportation to all who need rides to their appointments."' data-es='"Mi conductor Hamid es un excelente conductor seguro. Definitivamente recomiendo First Aid Transportation a todos los que necesiten transporte a sus citas."'>"My driver Hamid is an excellent safe driver and I really appreciate their services. I definitely recommend using First Aid Transportation to all who need rides to their appointments."</p>
+        <div style="font-size:.82rem;font-weight:700;color:var(--navy);">Lawrence M.</div>
+        <div style="font-size:.78rem;color:var(--gray);" data-en="Google Review" data-es="Reseña de Google">Google Review</div>
+      </div>
+      <div class="card" style="padding:1.75rem;">
+        <div style="display:flex;gap:.25rem;margin-bottom:.75rem;"><span style="color:#f5a623;font-size:1.1rem;">★★★★★</span></div>
+        <p style="font-size:.93rem;color:var(--gray);line-height:1.7;margin-bottom:1rem;" data-en='"I highly recommend this service. They actually care about the people they are transporting. They go above and beyond to make sure the patients are comfortable."' data-es='"Recomiendo ampliamente este servicio. Realmente se preocupan por las personas que transportan. Hacen todo lo posible para que los pacientes estén cómodos."'>"I highly recommend this service. They actually care about the people they are transporting. They go above and beyond to make sure the patients are comfortable."</p>
+        <div style="font-size:.82rem;font-weight:700;color:var(--navy);">Andrea J.</div>
+        <div style="font-size:.78rem;color:var(--gray);" data-en="Google Review" data-es="Reseña de Google">Google Review</div>
+      </div>
+      <div class="card" style="padding:1.75rem;">
+        <div style="display:flex;gap:.25rem;margin-bottom:.75rem;"><span style="color:#f5a623;font-size:1.1rem;">★★★★★</span></div>
+        <p style="font-size:.93rem;color:var(--gray);line-height:1.7;margin-bottom:1rem;" data-en='"We use First Aid Transportation via our Medical Insurance. Our relative needs transportation to dialysis four times per week. Thank God we found First Aid Transportation."' data-es='"Usamos First Aid Transportation a través de nuestro seguro médico. Nuestro familiar necesita transporte a diálisis cuatro veces por semana. Gracias a Dios encontramos First Aid Transportation."'>"We use First Aid Transportation via our Medical Insurance. Our relative needs transportation to dialysis four times per week. Thank God we found First Aid Transportation."</p>
+        <div style="font-size:.82rem;font-weight:700;color:var(--navy);">Ishac O.</div>
+        <div style="font-size:.78rem;color:var(--gray);" data-en="Yelp Review" data-es="Reseña de Yelp">Yelp Review</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+      <a href="https://www.yelp.com/biz/first-aid-transportation-llc-oakland" target="_blank" class="btn btn-outline" data-en="⭐ See Our Yelp Reviews" data-es="⭐ Ver Nuestras Reseñas en Yelp">⭐ See Our Yelp Reviews</a>
+      <a href="https://www.yelp.com/writeareview/biz/first-aid-transportation-llc-oakland" target="_blank" class="btn btn-primary" data-en="✍️ Leave Us a Review" data-es="✍️ Déjanos una Reseña">✍️ Leave Us a Review</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-tag" data-en="Find Us" data-es="Encuéntranos">Find Us</p>
+    <h2 class="section-title" data-en="Where We Are" data-es="Dónde Estamos">Where We Are</h2>
+    <p class="section-sub" style="margin-bottom:1.75rem;" data-en="Based in Oakland, CA — serving the entire Bay Area." data-es="Con sede en Oakland, CA — sirviendo a toda el Área de la Bahía.">Based in Oakland, CA — serving the entire Bay Area.</p>
+    <div style="display:grid;grid-template-columns:1fr 320px;gap:2rem;align-items:start;">
+      <div style="border-radius:14px;overflow:hidden;border:1.5px solid var(--border);box-shadow:var(--shadow-md);">
+        <iframe
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          style="display:block;width:100%;height:420px;border:none;"
+          src="https://maps.google.com/maps?q=1709+International+Blvd+Ste+107+Oakland+CA+94606&output=embed">
+        </iframe>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="contact-box">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div><span class="ci-label" data-en="Address" data-es="Dirección">Address</span><span class="ci-value">1709 International Blvd., Ste. 107<br/>Oakland, CA 94606</span></div>
           </div>
-          <div class="form-group"><label>Phone *</label><input type="tel" name="Phone Number" required placeholder="(510) 000-0000"/></div>
-          <div class="form-group"><label>Email *</label><input type="email" name="Email" required placeholder="you@example.com"/></div>
-          <div class="form-group">
-            <label>Position Applying For *</label>
-            <select name="Position" required>
-              <option value="">— Select —</option>
-              <option>NEMT Driver — Wheelchair & Ambulatory</option>
-              <option>Gurney Transport Specialist</option>
-              <option>Other</option>
-            </select>
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div><span class="ci-label" data-en="Phone" data-es="Teléfono">Phone</span><span class="ci-value"><a href="tel:5104797328">510-479-7328</a></span></div>
           </div>
-          <div class="form-group">
-            <label>Valid CA Driver's License? *</label>
-            <select name="Valid CA License" required><option value="">— Select —</option><option value="Yes">Yes</option><option value="No">No</option></select>
+          <div class="contact-item">
+            <div class="ci-icon">✉️</div>
+            <div><span class="ci-label" data-en="Email" data-es="Correo">Email</span><span class="ci-value"><a href="mailto:firstaidtransportation@gmail.com">firstaidtransportation@gmail.com</a></span></div>
           </div>
-          <div class="form-group">
-            <label>Upload Resume (PDF or Word)</label>
-            <div class="file-upload-area" id="uploadArea" onclick="document.getElementById('resumeInput').click()">
-              <div class="u-icon">📄</div>
-              <p><strong>Click to upload</strong> or drag & drop</p>
-              <p>PDF, DOC, or DOCX — Max 5MB</p>
-              <div id="fileName"></div>
-            </div>
-            <input type="file" id="resumeInput" name="Resume" accept=".pdf,.doc,.docx" onchange="handleFile(this)"/>
+          <div class="contact-item">
+            <div class="ci-icon">🕐</div>
+            <div><span class="ci-label" data-en="Hours" data-es="Horario">Hours</span><span class="ci-value" data-en="Mon–Sat: 3:00 AM – 8:00 PM<br/>After Hours & Sundays by Appointment" data-es="Lun–Sáb: 3:00 AM – 8:00 PM<br/>Fuera de horario y domingos con cita previa">Mon–Sat: 3:00 AM – 8:00 PM<br/>After Hours & Sundays by Appointment</span></div>
           </div>
-          <div class="form-group"><label>Tell Us About Yourself</label><textarea name="About Yourself" placeholder="Brief experience, certifications, why you want to work with us..."></textarea></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;">Submit Application</button>
-        </form>
-        <div class="success-msg" id="successMsg">✅ Thank you for applying! We'll be in touch within a few business days. Email us at <a href="mailto:firstaidtransportation@gmail.com">firstaidtransportation@gmail.com</a>.</div>
+        </div>
+        <a href="https://maps.google.com/maps?q=1709+International+Blvd+Ste+107+Oakland+CA+94606" target="_blank" class="btn btn-primary" style="justify-content:center;" data-en="🗺️ Get Directions" data-es="🗺️ Cómo Llegar">🗺️ Get Directions</a>
       </div>
     </div>
   </div>
 </section>
+
+<section class="cta-banner">
+  <h2 data-en="Ready to Schedule Your Ride?" data-es="¿Listo para Reservar su Viaje?">Ready to Schedule Your Ride?</h2>
+  <p data-en="Our team is standing by. Call us or fill out our online form today." data-es="Nuestro equipo está disponible. Llámenos o complete nuestro formulario en línea hoy.">Our team is standing by. Call us or fill out our online form today.</p>
+  <div class="cta-btns">
+    <a href="schedule.html" class="btn btn-white" data-en="✚ Schedule a Ride Online" data-es="✚ Reservar un Viaje en Línea">✚ Schedule a Ride Online</a>
+    <a href="tel:5104797328" class="btn btn-out-w">📞 Call 510-479-7328</a>
+  </div>
+</section>
+
 <div id="footer"></div>
 <script src="shared.js"></script>
 <script>
   document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
+
   function setLang(lang){
     localStorage.setItem('lang',lang);
     document.documentElement.lang=lang;
@@ -167,33 +261,23 @@
     const btnES=document.getElementById('btnES');
     if(btnEN) btnEN.classList.toggle('active',lang==='en');
     if(btnES) btnES.classList.toggle('active',lang==='es');
+    document.title=lang==='es'?'First Aid Transportation LLC | Proveedor NEMT del Área de la Bahía':'First Aid Transportation LLC | Bay Area NEMT Provider';
   }
-  window.addEventListener('load', function(){
+  window.addEventListener('load',function(){
     const savedLang=localStorage.getItem('lang')||'en';
     if(savedLang==='es') setLang('es');
   });
 
-  function handleFile(input){const file=input.files[0];if(file){document.getElementById('uploadArea').classList.add('has-file');const fn=document.getElementById('fileName');fn.style.display='block';fn.textContent='✅ '+file.name;}}
-  async function handleSubmit(e){
-    e.preventDefault();
-    const form = document.getElementById('careerForm');
-    const data = new FormData(form);
-    try {
-      const res = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
-      if(res.ok){
-        form.style.display='none';
-        document.getElementById('successMsg').style.display='block';
-      } else {
-        alert('There was a problem submitting. Please email us at firstaidtransportation@gmail.com');
-      }
-    } catch(err){
-      alert('There was a problem submitting. Please email us at firstaidtransportation@gmail.com');
-    }
-  }
-  const ua=document.getElementById('uploadArea');
-  ua.addEventListener('dragover',e=>{e.preventDefault();ua.style.borderColor='var(--sky)';});
-  ua.addEventListener('dragleave',()=>{ua.style.borderColor='';});
-  ua.addEventListener('drop',e=>{e.preventDefault();if(e.dataTransfer.files[0]){document.getElementById('resumeInput').files=e.dataTransfer.files;handleFile(document.getElementById('resumeInput'));}});
+  // Carousel
+  const REAL=5,track=document.getElementById('carouselTrack'),dotsContainer=document.getElementById('carouselDots');
+  let current=0,isTransitioning=false;
+  for(let i=0;i<REAL;i++){const d=document.createElement('span');if(i===0)d.classList.add('active');d.addEventListener('click',()=>goTo(i));dotsContainer.appendChild(d);}
+  function updateDots(n){document.querySelectorAll('.carousel-dots span').forEach((d,i)=>d.classList.toggle('active',i===n));}
+  function goTo(n,animate=true){if(isTransitioning)return;isTransitioning=true;current=n;track.style.transition=animate?'transform .5s ease':'none';track.style.transform=`translateX(-${current*100}%)`;updateDots(current%REAL);setTimeout(()=>{isTransitioning=false;},520);}
+  track.addEventListener('transitionend',()=>{if(current>=REAL){track.style.transition='none';current=0;track.style.transform='translateX(0%)';updateDots(0);}});
+  document.getElementById('nextBtn').addEventListener('click',()=>goTo(current+1));
+  document.getElementById('prevBtn').addEventListener('click',()=>{goTo(current<=0?REAL-1:current-1);});
+  setInterval(()=>goTo(current+1),4000);
 </script>
 </body>
 </html>
