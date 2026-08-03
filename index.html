@@ -136,9 +136,9 @@
     <h2 class="section-title" data-en="Service Areas" data-es="Áreas de Servicio">Service Areas</h2>
     <p class="section-sub" data-en="Serving patients across five Bay Area counties." data-es="Atendiendo pacientes en cinco condados del Área de la Bahía.">Serving patients across five Bay Area counties.</p>
     <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem;">
-      <span class="area-chip">Alameda County</span><span class="area-chip">Contra Costa County</span>
-      <span class="area-chip">Santa Clara County</span><span class="area-chip">San Francisco Area</span>
-      <span class="area-chip">San Mateo County</span><span class="area-chip">Oakland</span>
+      <span class="area-chip" data-en="Alameda County" data-es="Condado de Alameda">Alameda County</span><span class="area-chip" data-en="Contra Costa County" data-es="Condado de Contra Costa">Contra Costa County</span>
+      <span class="area-chip" data-en="Santa Clara County" data-es="Condado de Santa Clara">Santa Clara County</span><span class="area-chip" data-en="San Francisco Area" data-es="Área de San Francisco">San Francisco Area</span>
+      <span class="area-chip" data-en="San Mateo County" data-es="Condado de San Mateo">San Mateo County</span><span class="area-chip">Oakland</span>
       <span class="area-chip">Berkeley</span><span class="area-chip">Fremont</span>
       <span class="area-chip">Hayward</span><span class="area-chip">San Leandro</span>
       <span class="area-chip">Richmond</span><span class="area-chip">Emeryville</span>
@@ -276,6 +276,10 @@
     document.querySelectorAll('[data-en]').forEach(el=>{
       const val=el.getAttribute('data-'+lang);
       if(val!==null) el.innerHTML=val;
+    });
+    document.querySelectorAll('[data-ph-en]').forEach(el=>{
+      const val=el.getAttribute('data-ph-'+lang);
+      if(val!==null) el.placeholder=val;
     });
     const btnEN=document.getElementById('btnEN');
     const btnES=document.getElementById('btnES');

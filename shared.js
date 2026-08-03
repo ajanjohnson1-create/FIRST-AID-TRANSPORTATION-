@@ -9,7 +9,7 @@ const TOPBAR_HTML = `
     <div class="social-links">
       <a href="https://www.instagram.com/firstaidtransportation" target="_blank" title="Instagram">📷</a>
       <a href="https://www.yelp.com/biz/first-aid-transportation-llc-oakland" target="_blank" title="Yelp">★</a>
-      <a href="https://www.google.com/maps/place/First+Aid+Transportation+LLC/@37.8043,-122.2708,15z" target="_blank" title="Google Business">🔍</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=First+Aid+Transportation+LLC+1709+International+Blvd+Oakland+CA+94606" target="_blank" title="Google Business">🔍</a>
     </div>
   </div>
 </div>`;

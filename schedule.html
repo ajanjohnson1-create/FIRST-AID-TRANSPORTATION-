@@ -44,7 +44,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
     <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
-    <li><a href="schedule.html" class="active" data-en="Schedule a Ride" data-es="Reservar un Viaje" data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</a></li>
+    <li><a href="schedule.html" class="active" data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</a></li>
     <li><a href="careers.html" data-en="Careers" data-es="Empleos">Careers</a></li>
     <li><a href="contact.html" class="nav-cta" data-en="Contact Us" data-es="Contáctenos">Contact Us</a></li>
   </ul>
@@ -52,8 +52,8 @@
 <div class="page-hero fade-up">
   <div class="page-hero-inner">
     <p class="breadcrumb"><a href="index.html">Home</a> › Schedule a Ride</p>
-    <h1>Schedule a Ride</h1>
-    <p>Fill out the form below to book your non-emergency medical transportation. We require 48-hour advance notice. For urgent requests, call us directly.</p>
+    <h1 data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</h1>
+    <p data-en="Fill out the form below to book your non-emergency medical transportation. We require 48-hour advance notice. For urgent requests, call us directly." data-es="Complete el formulario para reservar su transporte médico no de emergencia. Requerimos aviso con 48 horas de anticipación. Para solicitudes urgentes, llámenos directamente.">Fill out the form below to book your non-emergency medical transportation. We require 48-hour advance notice. For urgent requests, call us directly.</p>
   </div>
 </div>
 <section class="section">
@@ -65,58 +65,58 @@
           <input type="hidden" name="_replyto" value="firstaidtransportation@gmail.com"/>
           <h3 class="fsec" data-en="1. Patient Information" data-es="1. Información del Paciente">1. Patient Information</h3>
           <div class="form-row">
-            <div class="form-group"><label>First Name *</label><input type="text" name="First Name" placeholder="Jane" required/></div>
-            <div class="form-group"><label>Last Name *</label><input type="text" name="Last Name" placeholder="Doe" required/></div>
+            <div class="form-group"><label data-en="First Name *" data-es="Nombre *">First Name *</label><input type="text" name="First Name" placeholder="Jane" required/></div>
+            <div class="form-group"><label data-en="Last Name *" data-es="Apellido *">Last Name *</label><input type="text" name="Last Name" placeholder="Doe" required/></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Date of Birth</label><input type="date" name="Date of Birth"/></div>
-            <div class="form-group"><label>Phone Number *</label><input type="tel" name="Phone Number" placeholder="(510) 000-0000" required/></div>
+            <div class="form-group"><label data-en="Date of Birth" data-es="Fecha de Nacimiento">Date of Birth</label><input type="date" name="Date of Birth"/></div>
+            <div class="form-group"><label data-en="Phone Number *" data-es="Número de Teléfono *">Phone Number *</label><input type="tel" name="Phone Number" placeholder="(510) 000-0000" required/></div>
           </div>
-          <div class="form-group"><label>Email Address</label><input type="email" name="Email" placeholder="you@example.com"/></div>
+          <div class="form-group"><label data-en="Email Address" data-es="Correo Electrónico">Email Address</label><input type="email" name="Email" placeholder="you@example.com"/></div>
 
           <h3 class="fsec" data-en="2. Payment / Insurance" data-es="2. Pago / Seguro">2. Payment / Insurance</h3>
           <div class="form-group">
-            <label>Payment Method *</label>
+            <label data-en="Payment Method *" data-es="Método de Pago *">Payment Method *</label>
             <select name="Payment Method" id="paymentMethod" required onchange="toggleCardFields()">
-              <option value="">— Select Payment Method —</option>
+              <option value="" data-en="— Select Payment Method —" data-es="— Seleccione Método de Pago —">— Select Payment Method —</option>
               <option value="Medi-Cal">Medi-Cal</option>
               <option value="CCHP (Contra Costa Health Plan)">CCHP (Contra Costa Health Plan)</option>
               <option value="HPSM (Health Plan of San Mateo)">HPSM (Health Plan of San Mateo)</option>
-              <option value="Private Pay">Private Pay</option>
-              <option value="Other Insurance">Other Insurance</option>
+              <option value="Private Pay" data-en="Private Pay" data-es="Pago Privado">Private Pay</option>
+              <option value="Other Insurance" data-en="Other Insurance" data-es="Otro Seguro">Other Insurance</option>
             </select>
           </div>
-          <div class="form-group"><label>Insurance / Member ID (if applicable)</label><input type="text" name="Member ID" placeholder="Member ID or Policy Number"/></div>
+          <div class="form-group"><label data-en="Insurance / Member ID (if applicable)" data-es="Seguro / ID de Miembro (si aplica)">Insurance / Member ID (if applicable)</label><input type="text" name="Member ID" placeholder="Member ID or Policy Number" data-ph-en="Member ID or Policy Number" data-ph-es="ID de Miembro o Número de Póliza"/></div>
 
           <!-- PRIVATE PAY CARD FIELDS (shown only when Private Pay selected) -->
           <div id="cardFields" style="display:none;background:var(--ice);border:1.5px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.25rem;">
             <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;">
               <span style="font-size:1.2rem;">🔒</span>
-              <span style="font-size:.8rem;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;">Card Information — Encrypted End-to-End</span>
+              <span style="font-size:.8rem;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;" data-en="Card Information — Encrypted End-to-End" data-es="Información de Tarjeta — Cifrada de Extremo a Extremo">Card Information — Encrypted End-to-End</span>
             </div>
             <div class="form-group">
-              <label>Cardholder Name *</label>
-              <input type="text" id="cardName" placeholder="Name as it appears on card"/>
+              <label data-en="Cardholder Name *" data-es="Nombre del Titular *">Cardholder Name *</label>
+              <input type="text" id="cardName" placeholder="Name as it appears on card" data-ph-en="Name as it appears on card" data-ph-es="Nombre como aparece en la tarjeta"/>
             </div>
             <div class="form-group">
-              <label>Card Number *</label>
+              <label data-en="Card Number *" data-es="Número de Tarjeta *">Card Number *</label>
               <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)"/>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label>Expiry Date *</label>
+                <label data-en="Expiry Date *" data-es="Fecha de Vencimiento *">Expiry Date *</label>
                 <input type="text" id="cardExpiry" placeholder="MM / YY" maxlength="7" oninput="formatExpiry(this)"/>
               </div>
               <div class="form-group">
-                <label>CVV *</label>
+                <label data-en="CVV *" data-es="CVV *">CVV *</label>
                 <input type="text" id="cardCVV" placeholder="123" maxlength="4"/>
               </div>
             </div>
             <div class="form-group">
-              <label>Billing ZIP Code *</label>
+              <label data-en="Billing ZIP Code *" data-es="Código Postal de Facturación *">Billing ZIP Code *</label>
               <input type="text" id="cardZip" placeholder="94606" maxlength="5"/>
             </div>
-            <p style="font-size:.78rem;color:var(--gray);margin-top:.5rem;">🔒 Your card data is encrypted in your browser before sending. We will process payment once your trip is confirmed.</p>
+            <p style="font-size:.78rem;color:var(--gray);margin-top:.5rem;" data-en="🔒 Your card data is encrypted in your browser before sending. We will process payment once your trip is confirmed." data-es="🔒 Los datos de su tarjeta se cifran en su navegador antes de enviarse. Procesaremos el pago una vez confirmado su viaje.">🔒 Your card data is encrypted in your browser before sending. We will process payment once your trip is confirmed.</p>
             <!-- Hidden field that holds the encrypted card data -->
             <input type="hidden" name="Encrypted Card Data" id="encryptedCardData"/>
           </div>
@@ -134,68 +134,68 @@
           </div>
 
           <h3 class="fsec" data-en="4. Trip Details" data-es="4. Detalles del Viaje">4. Trip Details</h3>
-          <div class="form-group"><label>Pickup Address *</label><input type="text" name="Pickup Address" placeholder="123 Main St, Oakland, CA" required/></div>
-          <div class="form-group"><label>Destination Address *</label><input type="text" name="Destination Address" placeholder="456 Hospital Ave, Oakland, CA" required/></div>
+          <div class="form-group"><label data-en="Pickup Address *" data-es="Dirección de Recogida *">Pickup Address *</label><input type="text" name="Pickup Address" placeholder="123 Main St, Oakland, CA" required/></div>
+          <div class="form-group"><label data-en="Destination Address *" data-es="Dirección de Destino *">Destination Address *</label><input type="text" name="Destination Address" placeholder="456 Hospital Ave, Oakland, CA" required/></div>
           <div class="form-row">
-            <div class="form-group"><label>Appointment Date *</label><input type="date" name="Appointment Date" required/></div>
-            <div class="form-group"><label>Appointment Time *</label><input type="time" name="Appointment Time" required/></div>
+            <div class="form-group"><label data-en="Appointment Date *" data-es="Fecha de la Cita *">Appointment Date *</label><input type="date" name="Appointment Date" required/></div>
+            <div class="form-group"><label data-en="Appointment Time *" data-es="Hora de la Cita *">Appointment Time *</label><input type="time" name="Appointment Time" required/></div>
           </div>
           <div class="form-group">
-            <label>Type of Appointment</label>
+            <label data-en="Type of Appointment" data-es="Tipo de Cita">Type of Appointment</label>
             <select name="Appointment Type">
-              <option value="">— Select —</option>
-              <option>Doctor's Appointment</option>
-              <option>Dialysis Center</option>
-              <option>Outpatient Surgery</option>
-              <option>Hospital Discharge</option>
-              <option>Physical Therapy</option>
-              <option>Lab / Imaging</option>
-              <option>Social Outing / Shopping</option>
-              <option>Other</option>
+              <option value="" data-en="— Select —" data-es="— Seleccione —">— Select —</option>
+              <option data-en="Doctor's Appointment" data-es="Cita Médica">Doctor's Appointment</option>
+              <option data-en="Dialysis Center" data-es="Centro de Diálisis">Dialysis Center</option>
+              <option data-en="Outpatient Surgery" data-es="Cirugía Ambulatoria">Outpatient Surgery</option>
+              <option data-en="Hospital Discharge" data-es="Alta Hospitalaria">Hospital Discharge</option>
+              <option data-en="Physical Therapy" data-es="Terapia Física">Physical Therapy</option>
+              <option data-en="Lab / Imaging" data-es="Laboratorio / Imágenes">Lab / Imaging</option>
+              <option data-en="Social Outing / Shopping" data-es="Salida Social / Compras">Social Outing / Shopping</option>
+              <option data-en="Other" data-es="Otro">Other</option>
             </select>
           </div>
 
-          <h3 class="fsec">5. Special Needs</h3>
+          <h3 class="fsec" data-en="5. Special Needs" data-es="5. Necesidades Especiales">5. Special Needs</h3>
           <div class="form-row">
-            <div class="form-group"><label>Stair Assistance?</label><select name="Stair Assistance"><option>No</option><option>Yes — Pickup</option><option>Yes — Drop-off</option><option>Yes — Both</option></select></div>
-            <div class="form-group"><label>Oxygen Tank Required?</label><select name="Oxygen Tank"><option>No</option><option>Yes</option></select></div>
+            <div class="form-group"><label data-en="Stair Assistance?" data-es="¿Asistencia en Escaleras?">Stair Assistance?</label><select name="Stair Assistance"><option>No</option><option data-en="Yes — Pickup" data-es="Sí — Recogida">Yes — Pickup</option><option data-en="Yes — Drop-off" data-es="Sí — Entrega">Yes — Drop-off</option><option data-en="Yes — Both" data-es="Sí — Ambos">Yes — Both</option></select></div>
+            <div class="form-group"><label data-en="Oxygen Tank Required?" data-es="¿Requiere Tanque de Oxígeno?">Oxygen Tank Required?</label><select name="Oxygen Tank"><option>No</option><option>Yes</option></select></div>
           </div>
-          <div class="form-group"><label>Additional Notes</label><textarea name="Additional Notes" placeholder="Any other information we should know about the patient or trip..."></textarea></div>
-          <button type="submit" class="btn btn-danger" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">✚ &nbsp;Submit Ride Request</button>
+          <div class="form-group"><label data-en="Additional Notes" data-es="Notas Adicionales">Additional Notes</label><textarea name="Additional Notes" placeholder="Any other information we should know about the patient or trip..." data-ph-en="Any other information we should know about the patient or trip..." data-ph-es="Cualquier otra información que debamos saber sobre el paciente o el viaje..."></textarea></div>
+          <button type="submit" class="btn btn-danger" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;" data-en="✚ &nbsp;Submit Ride Request" data-es="✚ &nbsp;Enviar Solicitud de Viaje">✚ &nbsp;Submit Ride Request</button>
         </form>
         <div class="success-msg" id="successMsg">✅ Your ride request has been submitted! We'll contact you within a few hours to confirm. For urgent needs, call <a href="tel:5104797328">510-479-7328</a>.</div>
       </div>
 
       <div class="side-info fade-up delay-2">
         <div class="info-card">
-          <h4>📋 How It Works</h4>
+          <h4 data-en="📋 How It Works" data-es="📋 Cómo Funciona">📋 How It Works</h4>
           <ol class="step-list">
-            <li>Fill out the form with patient and trip details.</li>
-            <li>Submit at least 48 hours before the appointment.</li>
-            <li>We'll confirm your booking via phone or email.</li>
-            <li>Our certified driver arrives on time, door-to-door.</li>
+            <li data-en="Fill out the form with patient and trip details." data-es="Complete el formulario con los datos del paciente y del viaje.">Fill out the form with patient and trip details.</li>
+            <li data-en="Submit at least 48 hours before the appointment." data-es="Envíelo al menos 48 horas antes de la cita.">Submit at least 48 hours before the appointment.</li>
+            <li data-en="We'll confirm your booking via phone or email." data-es="Confirmaremos su reserva por teléfono o correo electrónico.">We'll confirm your booking via phone or email.</li>
+            <li data-en="Our certified driver arrives on time, door-to-door." data-es="Nuestro conductor certificado llega puntual, de puerta a puerta.">Our certified driver arrives on time, door-to-door.</li>
           </ol>
         </div>
         <div class="info-card">
-          <h4>💊 Insurance We Accept</h4>
+          <h4 data-en="💊 Insurance We Accept" data-es="💊 Seguros Que Aceptamos">💊 Insurance We Accept</h4>
           <div class="pay-opt">✓ Medi-Cal</div>
           <div class="pay-opt">✓ CCHP (Contra Costa Health Plan)</div>
           <div class="pay-opt">✓ HPSM (Health Plan of San Mateo)</div>
           <div class="pay-opt">✓ Private Pay</div>
         </div>
         <div class="info-card">
-          <h4>📞 Prefer to Call?</h4>
-          <p style="font-size:.88rem;color:var(--gray);margin-bottom:1rem;">For urgent requests call us directly:</p>
+          <h4 data-en="📞 Prefer to Call?" data-es="📞 ¿Prefiere Llamar?">📞 Prefer to Call?</h4>
+          <p style="font-size:.88rem;color:var(--gray);margin-bottom:1rem;" data-en="For urgent requests call us directly:" data-es="Para solicitudes urgentes, llámenos directamente:">For urgent requests call us directly:</p>
           <a href="tel:5104797328" class="btn btn-primary" style="width:100%;justify-content:center;">📞 Call 510-479-7328</a>
         </div>
         <div class="info-card" style="background:var(--ice);">
-          <h4>🕐 Service Hours</h4>
-          <p style="font-size:.88rem;color:var(--gray);line-height:1.65;"><strong>Mon–Sat:</strong> 3:00 AM – 8:00 PM<br/><strong>After Hours, Sundays & Holidays:</strong> Available if scheduled in advance.</p>
+          <h4 data-en="🕐 Service Hours" data-es="🕐 Horario de Servicio">🕐 Service Hours</h4>
+          <p style="font-size:.88rem;color:var(--gray);line-height:1.65;"><strong data-en="Mon–Sat:" data-es="Lun–Sáb:">Mon–Sat:</strong> 3:00 AM – 8:00 PM<br/><strong data-en="After Hours, Sundays & Holidays:" data-es="Fuera de horario, domingos y feriados:">After Hours, Sundays & Holidays:</strong> Available if scheduled in advance.</p>
         </div>
         <div class="contact-box">
-          <div class="contact-item"><div class="ci-icon">📍</div><div><span class="ci-label">Address</span><span class="ci-value">1709 International Blvd., Ste. 107<br/>Oakland, CA 94606</span></div></div>
+          <div class="contact-item"><div class="ci-icon">📍</div><div><span class="ci-label" data-en="Address" data-es="Dirección">Address</span><span class="ci-value">1709 International Blvd., Ste. 107<br/>Oakland, CA 94606</span></div></div>
           <div class="contact-item"><div class="ci-icon">📠</div><div><span class="ci-label">Fax</span><span class="ci-value">510-842-8357</span></div></div>
-          <div class="contact-item"><div class="ci-icon">✉️</div><div><span class="ci-label">Email</span><span class="ci-value"><a href="mailto:firstaidtransportation@gmail.com">firstaidtransportation@gmail.com</a></span></div></div>
+          <div class="contact-item"><div class="ci-icon">✉️</div><div><span class="ci-label" data-en="Email" data-es="Correo Electrónico">Email</span><span class="ci-value"><a href="mailto:firstaidtransportation@gmail.com">firstaidtransportation@gmail.com</a></span></div></div>
         </div>
       </div>
     </div>
@@ -231,6 +231,10 @@
     document.querySelectorAll('[data-en]').forEach(el=>{
       const val=el.getAttribute('data-'+lang);
       if(val!==null) el.innerHTML=val;
+    });
+    document.querySelectorAll('[data-ph-en]').forEach(el=>{
+      const val=el.getAttribute('data-ph-'+lang);
+      if(val!==null) el.placeholder=val;
     });
     document.querySelectorAll('a[data-en]').forEach(el=>{
       const val=el.getAttribute('data-'+lang);

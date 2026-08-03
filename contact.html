@@ -37,60 +37,60 @@
     <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
     <li><a href="schedule.html" data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</a></li>
     <li><a href="careers.html" data-en="Careers" data-es="Empleos">Careers</a></li>
-    <li><a href="contact.html" class="active nav-cta" data-en="Contact Us" data-es="Contáctenos" data-en="Contact Us" data-es="Contáctenos">Contact Us</a></li>
+    <li><a href="contact.html" class="active nav-cta" data-en="Contact Us" data-es="Contáctenos">Contact Us</a></li>
   </ul>
 </nav>
 <div class="page-hero fade-up">
   <div class="page-hero-inner">
     <p class="breadcrumb"><a href="index.html">Home</a> › Contact Us</p>
-    <h1>Connect for Care, Reach for Support</h1>
-    <p>We're here to answer your questions and provide the assistance you're looking for. Your well-being is our priority.</p>
+    <h1 data-en="Connect for Care, Reach for Support" data-es="Conéctese para Recibir Cuidado y Apoyo">Connect for Care, Reach for Support</h1>
+    <p data-en="We're here to answer your questions and provide the assistance you're looking for. Your well-being is our priority." data-es="Estamos aquí para responder sus preguntas y brindarle la asistencia que necesita. Su bienestar es nuestra prioridad.">We're here to answer your questions and provide the assistance you're looking for. Your well-being is our priority.</p>
   </div>
 </div>
 <section class="section">
   <div class="container">
     <div class="contact-layout">
       <div class="form-card fade-up">
-        <p class="section-tag">Send a Message</p>
-        <h2 class="section-title" style="font-size:1.6rem;">How Can We Help You?</h2>
+        <p class="section-tag" data-en="Send a Message" data-es="Envíe un Mensaje">Send a Message</p>
+        <h2 class="section-title" style="font-size:1.6rem;" data-en="How Can We Help You?" data-es="¿Cómo Podemos Ayudarle?">How Can We Help You?</h2>
         <p style="color:var(--gray);font-size:.93rem;margin-bottom:2rem;line-height:1.6;">Fill out the form below. To schedule a ride, use our <a href="schedule.html" style="color:var(--blue);font-weight:600;">Schedule a Ride</a> page.</p>
         <form id="contactForm" action="https://formspree.io/f/mreogebl" method="POST" onsubmit="handleSubmit(event)">
           <input type="hidden" name="_subject" value="New Contact Message — First Aid Transportation"/>
           <div class="form-row">
-            <div class="form-group"><label>First Name *</label><input type="text" name="First Name" placeholder="Jane" required/></div>
-            <div class="form-group"><label>Last Name *</label><input type="text" name="Last Name" placeholder="Doe" required/></div>
+            <div class="form-group"><label data-en="First Name *" data-es="Nombre *">First Name *</label><input type="text" name="First Name" placeholder="Jane" required/></div>
+            <div class="form-group"><label data-en="Last Name *" data-es="Apellido *">Last Name *</label><input type="text" name="Last Name" placeholder="Doe" required/></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Phone Number *</label><input type="tel" name="Phone Number" placeholder="(510) 000-0000" required/></div>
-            <div class="form-group"><label>Email Address</label><input type="email" name="Email" placeholder="you@example.com"/></div>
+            <div class="form-group"><label data-en="Phone Number *" data-es="Número de Teléfono *">Phone Number *</label><input type="tel" name="Phone Number" placeholder="(510) 000-0000" required/></div>
+            <div class="form-group"><label data-en="Email Address" data-es="Correo Electrónico">Email Address</label><input type="email" name="Email" placeholder="you@example.com"/></div>
           </div>
           <div class="form-group">
-            <label>Subject / Type of Inquiry</label>
+            <label data-en="Subject / Type of Inquiry" data-es="Asunto / Tipo de Consulta">Subject / Type of Inquiry</label>
             <select name="Inquiry Type">
-              <option value="">— Select —</option>
-              <option>Schedule a Ride</option>
-              <option>Medi-Cal / Insurance Inquiry</option>
-              <option>Service Area Question</option>
-              <option>General Question</option>
-              <option>Feedback</option>
-              <option>Other</option>
+              <option value="" data-en="— Select —" data-es="— Seleccione —">— Select —</option>
+              <option data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</option>
+              <option data-en="Medi-Cal / Insurance Inquiry" data-es="Consulta sobre Medi-Cal / Seguro">Medi-Cal / Insurance Inquiry</option>
+              <option data-en="Service Area Question" data-es="Pregunta sobre Área de Servicio">Service Area Question</option>
+              <option data-en="General Question" data-es="Pregunta General">General Question</option>
+              <option data-en="Feedback" data-es="Comentarios">Feedback</option>
+              <option data-en="Other" data-es="Otro">Other</option>
             </select>
           </div>
-          <div class="form-group"><label>Message *</label><textarea name="Message" placeholder="Let us know how we can help you..." required></textarea></div>
-          <button type="submit" class="btn btn-danger" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">✚ &nbsp;Send Message</button>
+          <div class="form-group"><label data-en="Message *" data-es="Mensaje *">Message *</label><textarea name="Message" placeholder="Let us know how we can help you..." data-ph-en="Let us know how we can help you..." data-ph-es="Díganos cómo podemos ayudarle..." required></textarea></div>
+          <button type="submit" class="btn btn-danger" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;" data-en="✚ &nbsp;Send Message" data-es="✚ &nbsp;Enviar Mensaje">✚ &nbsp;Send Message</button>
         </form>
         <div class="success-msg" id="successMsg">✅ Thank you! We received your message and will be in touch shortly. For urgent needs, call <a href="tel:5104797328">510-479-7328</a>.</div>
       </div>
 
       <div class="fade-up delay-2" style="display:flex;flex-direction:column;gap:1.25rem;">
         <div class="contact-box">
-          <div class="contact-item"><div class="ci-icon">📞</div><div><span class="ci-label">Phone</span><span class="ci-value"><a href="tel:5104797328">510-479-7328</a></span></div></div>
+          <div class="contact-item"><div class="ci-icon">📞</div><div><span class="ci-label" data-en="Phone" data-es="Teléfono">Phone</span><span class="ci-value"><a href="tel:5104797328">510-479-7328</a></span></div></div>
           <div class="contact-item"><div class="ci-icon">📠</div><div><span class="ci-label">Fax</span><span class="ci-value">510-842-8357</span></div></div>
-          <div class="contact-item"><div class="ci-icon">✉️</div><div><span class="ci-label">Email</span><span class="ci-value"><a href="mailto:firstaidtransportation@gmail.com">firstaidtransportation@gmail.com</a></span></div></div>
-          <div class="contact-item"><div class="ci-icon">📍</div><div><span class="ci-label">Address</span><span class="ci-value">1709 International Blvd., Ste. 107<br/>Oakland, CA 94606</span></div></div>
+          <div class="contact-item"><div class="ci-icon">✉️</div><div><span class="ci-label" data-en="Email" data-es="Correo Electrónico">Email</span><span class="ci-value"><a href="mailto:firstaidtransportation@gmail.com">firstaidtransportation@gmail.com</a></span></div></div>
+          <div class="contact-item"><div class="ci-icon">📍</div><div><span class="ci-label" data-en="Address" data-es="Dirección">Address</span><span class="ci-value">1709 International Blvd., Ste. 107<br/>Oakland, CA 94606</span></div></div>
         </div>
         <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;box-shadow:var(--shadow-sm);">
-          <h4 style="font-family:var(--font-head);font-size:1rem;margin-bottom:1rem;">🕐 Hours of Operation</h4>
+          <h4 style="font-family:var(--font-head);font-size:1rem;margin-bottom:1rem;" data-en="🕐 Hours of Operation" data-es="🕐 Horario de Atención">🕐 Hours of Operation</h4>
           <table class="hours-table">
             <tr><td>Monday – Saturday</td><td>3:00 AM – 8:00 PM</td></tr>
             <tr><td>After Hours</td><td>By Appointment</td></tr>
@@ -99,8 +99,8 @@
           </table>
         </div>
         <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;box-shadow:var(--shadow-sm);">
-          <h4 style="font-family:var(--font-head);font-size:1rem;margin-bottom:.75rem;">🗺️ Our Location</h4>
-          <p style="font-size:.88rem;color:var(--gray);">Based in Oakland, CA — serving the entire Bay Area.</p>
+          <h4 style="font-family:var(--font-head);font-size:1rem;margin-bottom:.75rem;" data-en="🗺️ Our Location" data-es="🗺️ Nuestra Ubicación">🗺️ Our Location</h4>
+          <p style="font-size:.88rem;color:var(--gray);" data-en="Based in Oakland, CA — serving the entire Bay Area." data-es="Con sede en Oakland, CA — sirviendo a toda el Área de la Bahía.">Based in Oakland, CA — serving the entire Bay Area.</p>
           <div class="map-wrap">
             <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
               src="https://maps.google.com/maps?q=1709+International+Blvd+Oakland+CA+94606&output=embed">
@@ -108,7 +108,7 @@
           </div>
         </div>
         <div style="background:var(--ice);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center;">
-          <p style="font-size:.88rem;color:var(--gray);margin-bottom:1rem;">Ready to schedule your ride?</p>
+          <p style="font-size:.88rem;color:var(--gray);margin-bottom:1rem;" data-en="Ready to schedule your ride?" data-es="¿Listo para reservar su viaje?">Ready to schedule your ride?</p>
           <a href="schedule.html" class="btn btn-primary" style="width:100%;justify-content:center;">✚ Schedule a Ride</a>
         </div>
       </div>
@@ -145,6 +145,10 @@
     document.querySelectorAll('[data-en]').forEach(el=>{
       const val=el.getAttribute('data-'+lang);
       if(val!==null) el.innerHTML=val;
+    });
+    document.querySelectorAll('[data-ph-en]').forEach(el=>{
+      const val=el.getAttribute('data-ph-'+lang);
+      if(val!==null) el.placeholder=val;
     });
     document.querySelectorAll('a[data-en]').forEach(el=>{
       const val=el.getAttribute('data-'+lang);
