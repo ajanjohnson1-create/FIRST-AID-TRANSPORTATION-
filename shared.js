@@ -33,6 +33,8 @@ const FOOTER_HTML = `
         <li><a href="schedule.html">Schedule a Ride</a></li>
         <li><a href="careers.html">Careers</a></li>
         <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="sms-terms.html">SMS Terms of Service</a></li>
       </ul>
     </div>
     <div class="footer-col">
