@@ -76,7 +76,7 @@ nav {
 @media (max-width: 900px) {
   .topbar { display: none; }
   .hamburger { display: flex; }
-  .nav-links { display: none; position: absolute; top: 160px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 1rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); gap: .25rem; }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 1rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); gap: .25rem; }
   .nav-links.open { display: flex; }
   .nav-links a { padding: .75rem 1rem; border-radius: 8px; }
 }

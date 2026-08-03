@@ -68,28 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (topbarEl) topbarEl.innerHTML = TOPBAR_HTML;
   const footerEl = document.getElementById('footer');
   if (footerEl) footerEl.innerHTML = FOOTER_HTML;
-  
-  setTimeout(() => {
-    const hamburger = document.getElementById('hbg');
-    const navLinks = document.getElementById('navLinks');
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        hamburger.classList.toggle('open');
-        navLinks.classList.toggle('open');
-      });
-      document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-          hamburger.classList.remove('open');
-          navLinks.classList.remove('open');
-        }
-      });
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-          hamburger.classList.remove('open');
-          navLinks.classList.remove('open');
-        });
-      });
-    }
-  }, 100);
+  // NOTE: the hamburger menu handler lives in each page's inline script.
+  // Do not add one here — two handlers on the same button toggle it twice
+  // per tap, which cancels out and makes the menu appear unresponsive.
 });
