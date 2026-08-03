@@ -248,7 +248,29 @@
 <div id="footer"></div>
 <script src="shared.js"></script>
 <script>
-  document.getElementById('hbg').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open');});
+  document.addEventListener('DOMContentLoaded',function(){
+    const hamburger=document.getElementById('hbg');
+    const navLinks=document.getElementById('navLinks');
+    if(hamburger){
+      hamburger.addEventListener('click',function(e){
+        e.stopPropagation();
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+      });
+      document.addEventListener('click',function(e){
+        if(!hamburger.contains(e.target)&&!navLinks.contains(e.target)){
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('open');
+        }
+      });
+      navLinks.querySelectorAll('a').forEach(link=>{
+        link.addEventListener('click',function(){
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('open');
+        });
+      });
+    }
+  });
 
   function setLang(lang){
     localStorage.setItem('lang',lang);
