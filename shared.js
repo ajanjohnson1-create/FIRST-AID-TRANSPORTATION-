@@ -18,8 +18,8 @@ const FOOTER_HTML = `
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="/" style="text-decoration:none;display:flex;align-items:center;gap:.8rem;margin-bottom:.5rem;">
-        <img src="/logo.png" alt="First Aid Transportation Logo" style="width:48px;height:48px;object-fit:contain;"/>
+      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:.8rem;margin-bottom:.5rem;">
+        <img src="logo.png" alt="First Aid Transportation Logo" style="width:48px;height:48px;object-fit:contain;"/>
         <div class="logo-text">First Aid Transportation LLC<small>Non-Emergency Medical Transportation</small></div>
       </a>
       <p>Serving the Bay Area with compassionate, reliable non-emergency medical transportation since 2017.</p>
@@ -27,26 +27,26 @@ const FOOTER_HTML = `
     <div class="footer-col">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about/">About Us</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/schedule/">Schedule a Ride</a></li>
-        <li><a href="/careers/">Careers</a></li>
-        <li><a href="/contact/">Contact Us</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/sms-terms/">SMS Terms of Service</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="schedule.html">Schedule a Ride</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="sms-terms.html">SMS Terms of Service</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="/services/">Wheelchair Transport</a></li>
-        <li><a href="/services/">Gurney / Stretcher</a></li>
-        <li><a href="/services/">Ambulatory Transport</a></li>
-        <li><a href="/services/">Bariatric Gurney</a></li>
-        <li><a href="/services/">Door-to-Door Assist</a></li>
-        <li><a href="/services/">Stair Assistance</a></li>
-        <li><a href="/services/">Oxygen Tank Vehicles</a></li>
+        <li><a href="services.html">Wheelchair Transport</a></li>
+        <li><a href="services.html">Gurney / Stretcher</a></li>
+        <li><a href="services.html">Ambulatory Transport</a></li>
+        <li><a href="services.html">Bariatric Gurney</a></li>
+        <li><a href="services.html">Door-to-Door Assist</a></li>
+        <li><a href="services.html">Stair Assistance</a></li>
+        <li><a href="services.html">Oxygen Tank Vehicles</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -55,7 +55,7 @@ const FOOTER_HTML = `
         <li><a href="tel:5104797328">📞 510-479-7328</a></li>
         <li><a href="tel:5108428357">📠 Fax: 510-842-8357</a></li>
         <li><a href="mailto:firstaidtransportation@gmail.com">✉️ firstaidtransportation@gmail.com</a></li>
-        <li><a href="/contact/">📍 1709 International Blvd., Ste. 107, Oakland, CA 94606</a></li>
+        <li><a href="contact.html">📍 1709 International Blvd., Ste. 107, Oakland, CA 94606</a></li>
       </ul>
     </div>
   </div>
