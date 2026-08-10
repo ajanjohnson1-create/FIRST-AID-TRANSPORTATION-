@@ -41,14 +41,14 @@
 <body>
 <div id="topbar"></div>
 <nav>
-  <a href="index.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <img src="logo.png" alt="First Aid Transportation Logo"/>
     <div class="logo-text"><small data-en="Non-Emergency Medical Transportation" data-es="Transporte Médico No de Emergencia">Non-Emergency Medical Transportation</small></div>
   </a>
   <div style="display:flex;align-items:center;margin-left:auto;margin-right:.75rem;"><div class="lang-toggle"><button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button><button class="lang-btn" id="btnES" onclick="setLang('es')">ES</button></div></div>
   <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="about.html" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
     <li><a href="services.html" data-en="Services" data-es="Servicios">Services</a></li>
     <li><a href="schedule.html" data-en="Schedule a Ride" data-es="Reservar un Viaje">Schedule a Ride</a></li>
@@ -58,7 +58,7 @@
 </nav>
 <div class="page-hero fade-up">
   <div class="page-hero-inner">
-    <p class="breadcrumb"><a href="index.html">Home</a> › Careers</p>
+    <p class="breadcrumb"><a href="/">Home</a> › Careers</p>
     <h1 data-en="Join Our Team" data-es="Únete a Nuestro Equipo">Join Our Team</h1>
     <p data-en="Be part of a compassionate team making a real difference in patients' lives every day. We're looking for dedicated drivers in the Oakland Bay Area." data-es="Forme parte de un equipo compasivo que marca una diferencia real en la vida de los pacientes cada día. Buscamos conductores dedicados en el Área de la Bahía de Oakland.">Be part of a compassionate team making a real difference in patients' lives every day. We're looking for dedicated drivers in the Oakland Bay Area.</p>
   </div>
@@ -205,17 +205,55 @@
   async function handleSubmit(e){
     e.preventDefault();
     const form = document.getElementById('careerForm');
-    const data = new FormData(form);
-    try {
+    const fileInput = document.getElementById('resumeInput');
+    const hasFile = fileInput && fileInput.files && fileInput.files.length > 0;
+    const EMAIL = 'firstaidtransportation@gmail.com';
+
+    async function post(includeFile){
+      const data = new FormData(form);
+      if(!includeFile) data.delete('Resume');
       const res = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
-      if(res.ok){
+      let detail = '';
+      if(!res.ok){
+        try {
+          const j = await res.json();
+          if(j.errors && j.errors.length) detail = j.errors.map(x=>x.message).join('; ');
+          else if(j.error) detail = j.error;
+        } catch(_){ detail = 'HTTP ' + res.status; }
+      }
+      return { ok: res.ok, detail: detail };
+    }
+
+    try {
+      let r = await post(true);
+
+      // If the attachment is what's being rejected, resend without it
+      // so the application still reaches us instead of being lost.
+      if(!r.ok && hasFile){
+        const r2 = await post(false);
+        if(r2.ok){
+          form.style.display='none';
+          const msg = document.getElementById('successMsg');
+          msg.style.display='block';
+          const note = document.createElement('p');
+          note.style.cssText='margin-top:1rem;padding:1rem;background:#fff4e5;border-left:4px solid #f5a623;border-radius:8px;font-size:.9rem;line-height:1.6;color:#5a6a7e;text-align:left;';
+          note.innerHTML='<strong>One more step:</strong> we received your application, but your resume could not be attached. Please email it to <a href="mailto:'+EMAIL+'" style="color:var(--sky);font-weight:600;">'+EMAIL+'</a> with your name in the subject line.';
+          msg.appendChild(note);
+          return;
+        }
+        r = r2;
+      }
+
+      if(r.ok){
         form.style.display='none';
         document.getElementById('successMsg').style.display='block';
       } else {
-        alert('There was a problem submitting. Please email us at firstaidtransportation@gmail.com');
+        console.error('Formspree rejected submission:', r.detail);
+        alert('There was a problem submitting'+(r.detail ? ': '+r.detail : '.')+'\n\nPlease email us at '+EMAIL);
       }
     } catch(err){
-      alert('There was a problem submitting. Please email us at firstaidtransportation@gmail.com');
+      console.error('Submission error:', err);
+      alert('There was a problem submitting. Please email us at '+EMAIL);
     }
   }
   const ua=document.getElementById('uploadArea');
